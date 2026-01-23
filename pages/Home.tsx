@@ -220,8 +220,8 @@ const Home: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
             {[
               {
-                text: "Finally found my go-to barber in Newcastle. The shop has such a cool aesthetic and the guys are true professionals. Left feeling brand new. Cheers Wilson!",
-                author: "Alex M.",
+                text: "Been coming to Perry ever since I moved up to Newcastle and never been disappointed. Good craic and always welcoming with a good atmosphere in the shop!",
+                author: "Liam I.",
                 date: "2 weeks ago"
               },
               {
