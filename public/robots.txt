@@ -1,0 +1,9 @@
+# Wilson Barbershop Co. - robots.txt
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://wilsonbarber.co.uk/sitemap.xml
+
+# Crawl-delay (optional, be nice to search engines)
+Crawl-delay: 1
