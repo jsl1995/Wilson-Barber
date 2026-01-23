@@ -108,7 +108,7 @@ const Home: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               { icon: Star, title: "Experienced Barbers", desc: "Over 10 years experience in Barbering" },
-              { icon: Clock, title: "Online Booking", desc: "Zero wait time guaranteed" },
+              { icon: Clock, title: "Online Booking", desc: "Book Now to see our availability" },
               { icon: MapPin, title: "Newcastle Based", desc: "South Gosforth Location" }
             ].map((feature, idx) => (
               <div key={idx} className="flex items-center space-x-4 justify-center md:justify-start">
