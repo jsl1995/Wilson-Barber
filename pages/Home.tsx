@@ -250,7 +250,7 @@ const Home: React.FC = () => {
 
           <div className="text-center">
             <a 
-              href="https://g.co/kgs/NF19j4z69" 
+              href="https://share.google/dalnPugAoDiixxu2c" 
               target="_blank" 
               rel="noopener noreferrer"
               className="inline-block px-8 py-4 border border-white text-white hover:bg-white hover:text-black transition-all duration-300 uppercase tracking-widest text-sm font-medium"
