@@ -109,7 +109,7 @@ const Home: React.FC = () => {
             {[
               { icon: Star, title: "Experienced Barbers", desc: "Over 10 years experience in Barbering" },
               { icon: Clock, title: "Online Booking", desc: "Book Now to see our availability" },
-              { icon: MapPin, title: "Newcastle Based", desc: "South Gosforth Location" }
+              { icon: MapPin, title: "South Gosforth", desc: "5 minute walk from South Gosforth Metro Station" }
             ].map((feature, idx) => (
               <div key={idx} className="flex items-center space-x-4 justify-center md:justify-start">
                 <feature.icon className="h-8 w-8 text-black" />
