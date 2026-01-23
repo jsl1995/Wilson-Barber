@@ -26,7 +26,7 @@ const Contact: React.FC = () => {
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div className="bg-brand-charcoal p-6 rounded-sm border border-neutral-800">
+                <a href="https://www.google.com/maps/search/?api=1&query=Wilson+Barbershop+Co.+Newcastle" target="_blank" rel="noopener noreferrer" className="bg-brand-charcoal p-6 rounded-sm border border-neutral-800 hover:border-white transition-colors cursor-pointer block">
                   <MapPin className="h-8 w-8 text-brand-gold mb-4" />
                   <h3 className="text-white font-bold mb-2">Location</h3>
                   <p className="text-neutral-400 text-sm">
@@ -34,7 +34,7 @@ const Contact: React.FC = () => {
                     South Gosforth, Newcastle upon Tyne<br/>
                     NE3 1QD
                   </p>
-                </div>
+                </a>
 
                 <div className="bg-brand-charcoal p-6 rounded-sm border border-neutral-800">
                   <Phone className="h-8 w-8 text-brand-gold mb-4" />
