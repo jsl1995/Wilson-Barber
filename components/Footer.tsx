@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { Instagram, Facebook, MapPin, Phone, Mail, Clock } from 'lucide-react';
+import { Instagram, MapPin, Phone, Mail, Clock } from 'lucide-react';
 import Mustache from './Mustache';
 
 const Footer: React.FC = () => {
@@ -24,9 +24,6 @@ const Footer: React.FC = () => {
             <div className="flex space-x-4 pt-2">
               <a href="https://www.instagram.com/wilsonbarberco/?hl=en-gb" target="_blank" rel="noopener noreferrer" className="text-neutral-400 hover:text-brand-gold transition-colors">
                 <Instagram className="h-5 w-5" />
-              </a>
-              <a href="#" className="text-neutral-400 hover:text-brand-gold transition-colors">
-                <Facebook className="h-5 w-5" />
               </a>
             </div>
           </div>
