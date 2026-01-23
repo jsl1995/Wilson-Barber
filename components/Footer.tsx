@@ -22,7 +22,7 @@ const Footer: React.FC = () => {
               Traditional barbering for the modern gentleman. Experience precision cuts and luxury shaves in a relaxed atmosphere.
             </p>
             <div className="flex space-x-4 pt-2">
-              <a href="#" className="text-neutral-400 hover:text-brand-gold transition-colors">
+              <a href="https://www.instagram.com/wilsonbarberco/?hl=en-gb" target="_blank" rel="noopener noreferrer" className="text-neutral-400 hover:text-brand-gold transition-colors">
                 <Instagram className="h-5 w-5" />
               </a>
               <a href="#" className="text-neutral-400 hover:text-brand-gold transition-colors">
