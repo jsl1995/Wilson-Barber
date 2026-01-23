@@ -225,14 +225,14 @@ const Home: React.FC = () => {
                 date: "2 weeks ago"
               },
               {
-                text: "Been coming to Wilson Barbershop Co. since they opened. Consistent quality every single time. The hot towel shave is a must-try experience. 5 stars.",
-                author: "David K.",
+                text: "Have been coming here for years now. Never a bad hair cut. Have gone elsewhere on one or two occasions but have always regretted it.",
+                author: "Richard P.",
                 date: "1 month ago"
               },
               {
-                text: "Hands down the best trim I've had. Great chat, great music, and even better haircuts. Highly recommend booking in advance as they get busy!",
-                author: "Sam T.",
-                date: "3 months ago"
+                text: "Great service from Perry! Very professional, good craic, friendly and really knows his stuff. Can't recommend more!",
+                author: "R. Black",
+                date: "1 month ago"
               }
             ].map((review, i) => (
               <div key={i} className="bg-black p-10 border border-neutral-900 hover:border-white transition-colors duration-500 relative group">
