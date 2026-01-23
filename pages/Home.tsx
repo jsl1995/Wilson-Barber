@@ -45,7 +45,7 @@ const Home: React.FC = () => {
   return (
     <>
       <SEO 
-        title="Modern Men's Grooming" 
+        title="" 
         description="Wilson Barbershop Co. offers premium haircuts, beard trims, and hot towel shaves in Newcastle. Experience the art of traditional barbering."
         canonicalPath="/"
         schema={structuredData}

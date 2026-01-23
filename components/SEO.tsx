@@ -11,7 +11,7 @@ interface SEOProps {
 const SEO: React.FC<SEOProps> = ({ title, description, canonicalPath, schema }) => {
   useEffect(() => {
     // Update Title
-    document.title = `${title} | Wilson Barber Co.`;
+    document.title = title ? `${title} | Wilson Barbershop Co` : 'Wilson Barbershop Co Newcastle - South Gosforth';
 
     // Update Meta Description
     let metaDescription = document.querySelector('meta[name="description"]');
