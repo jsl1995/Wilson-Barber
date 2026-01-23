@@ -179,8 +179,8 @@ const Home: React.FC = () => {
               <ul className="space-y-4 mb-10">
                 {[
                   "Complimentary beverage with every service",
-                  "Free Parking when Car Reg registered in-store",
-                  "Premium grooming products used exclusively"
+                  "Premium grooming products used exclusively",
+                  "Free Parking when Car Reg registered in-store"
                 ].map((item, i) => (
                   <li key={i} className="flex items-center text-neutral-300">
                     <CheckCircle2 className="h-5 w-5 text-white mr-4" />
