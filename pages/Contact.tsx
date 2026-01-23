@@ -38,7 +38,7 @@ const Contact: React.FC = () => {
 
                 <div className="bg-brand-charcoal p-6 rounded-sm border border-neutral-800">
                   <Phone className="h-8 w-8 text-brand-gold mb-4" />
-                  <h3 className="text-white font-bold mb-2">Contacts</h3>
+                  <h3 className="text-white font-bold mb-2">Get in Touch</h3>
                   <p className="text-neutral-400 text-sm mb-1">T: <a href="tel:01912848786" className="hover:text-white transition-colors">0191 284 8786</a></p>
                   <p className="text-neutral-400 text-sm">E: <a href="mailto:information@wilsonbarber.co.uk" className="hover:text-white transition-colors">information@wilsonbarber.co.uk</a></p>
                 </div>
