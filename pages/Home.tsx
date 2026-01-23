@@ -179,7 +179,7 @@ const Home: React.FC = () => {
               <ul className="space-y-4 mb-10">
                 {[
                   "Complimentary beverage with every service",
-                  "Consultation tailored to your face shape",
+                  "Free Parking when Car Reg registered in-store",
                   "Premium grooming products used exclusively"
                 ].map((item, i) => (
                   <li key={i} className="flex items-center text-neutral-300">
