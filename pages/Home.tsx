@@ -252,7 +252,7 @@ const Home: React.FC = () => {
               rel="noopener noreferrer"
               className="inline-block px-8 py-4 border border-white text-white hover:bg-white hover:text-black transition-all duration-300 uppercase tracking-widest text-sm font-medium"
             >
-              Read all Google Reviews
+              Read Our Google Reviews
             </a>
           </div>
         </div>
