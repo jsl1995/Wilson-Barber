@@ -188,9 +188,6 @@ const Home: React.FC = () => {
                   </li>
                 ))}
               </ul>
-              <Link to="/about" className="inline-flex items-center text-white font-medium hover:text-neutral-400 transition-colors uppercase tracking-widest border-b border-white pb-1">
-                Read our full story <ArrowRight className="ml-4 h-4 w-4" />
-              </Link>
             </div>
           </div>
         </div>
