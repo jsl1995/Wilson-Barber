@@ -5,9 +5,9 @@ import react from '@vitejs/plugin-react';
 export default defineConfig(({ mode }) => {
     const env = loadEnv(mode, '.', '');
     return {
-      // For GitHub Pages: set base to your repo name
-      // For Vercel or custom domain: change to '/'
-      base: '/Wilson-Barber/',
+      // For Vercel or custom domain: use '/'
+      // For GitHub Pages: use '/Wilson-Barber/'
+      base: '/',
       server: {
         port: 3000,
         host: '0.0.0.0',
