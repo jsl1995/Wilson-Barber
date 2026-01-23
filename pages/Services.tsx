@@ -134,7 +134,7 @@ const Services: React.FC = () => {
       <div className="pt-24 min-h-screen bg-brand-dark">
         <div className="container mx-auto px-4 py-16">
           <div className="text-center max-w-2xl mx-auto mb-16">
-            <h1 className="font-serif text-4xl md:text-5xl font-bold text-white mb-6">Our Menu</h1>
+            <h1 className="font-serif text-4xl md:text-5xl font-bold text-white mb-6">What We Do</h1>
             <Mustache className="w-12 h-4 text-brand-gold mx-auto mb-6 opacity-80" />
             <p className="text-neutral-400 leading-relaxed">
               We take pride in our craft. Every service includes a consultation to ensure we deliver exactly what you're looking for, tailored to your style and hair type.
