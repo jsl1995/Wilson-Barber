@@ -85,7 +85,7 @@ const Home: React.FC = () => {
           </div>
 
           <p className="text-lg md:text-xl text-neutral-300 mb-10 max-w-xl mx-auto leading-relaxed font-light">
-            Traditional techniques. Modern styling. <br/>A haircut is not just a service, it's an identity.
+            South Gosforth based barbers in a relaxed setting.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
             <a href="https://belliata.com/online-booking?vi=67638#/" target="_blank" rel="noopener noreferrer">
