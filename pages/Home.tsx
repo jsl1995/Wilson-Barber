@@ -150,13 +150,13 @@ const Home: React.FC = () => {
                   {/* Grid of "posts" */}
                   <div className="grid grid-cols-2 gap-3 mb-6">
                      {[
-                        "https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&fit=crop&q=80&w=400", // Barber tools
-                        "https://images.unsplash.com/photo-1503951914875-befbb71334d7?auto=format&fit=crop&q=80&w=400", // Chair
-                        "https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&fit=crop&q=80&w=400", // Cut
-                        "https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&q=80&w=400"  // Shave
+                        "/images/insta1.jpg",
+                        "/images/insta2.jpg",
+                        "/images/insta3.jpg",
+                        "/images/insta4.jpg"
                      ].map((src, idx) => (
                         <a key={idx} href="https://www.instagram.com/wilsonbarberco/" target="_blank" rel="noopener noreferrer" className="block relative aspect-square overflow-hidden group">
-                           <img src={src} alt="Instagram post" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 filter grayscale group-hover:grayscale-0" />
+                           <img src={src} alt="Instagram post" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
                            <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                               <Instagram className="h-6 w-6 text-white" />
                            </div>
