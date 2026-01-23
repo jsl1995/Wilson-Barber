@@ -213,7 +213,7 @@ const Home: React.FC = () => {
                </div>
                <span className="text-neutral-500 text-xs">162 reviews on Google</span>
             </div>
-            <h2 className="font-serif text-4xl text-white font-bold mb-4">Client Stories</h2>
+            <h2 className="font-serif text-4xl text-white font-bold mb-4">See what Customer's say about us</h2>
             <Mustache className="w-24 h-8 text-white/50 mx-auto" />
           </div>
           
