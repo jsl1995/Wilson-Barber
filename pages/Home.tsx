@@ -150,10 +150,10 @@ const Home: React.FC = () => {
                   {/* Grid of "posts" */}
                   <div className="grid grid-cols-2 gap-3 mb-6">
                      {[
-                        "/images/insta1.jpg",
-                        "/images/insta2.jpg",
-                        "/images/insta3.jpg",
-                        "/images/insta4.jpg"
+                        `${import.meta.env.BASE_URL}images/insta1.jpg`,
+                        `${import.meta.env.BASE_URL}images/insta2.jpg`,
+                        `${import.meta.env.BASE_URL}images/insta3.jpg`,
+                        `${import.meta.env.BASE_URL}images/insta4.jpg`
                      ].map((src, idx) => (
                         <a key={idx} href="https://www.instagram.com/wilsonbarberco/" target="_blank" rel="noopener noreferrer" className="block relative aspect-square overflow-hidden group">
                            <img src={src} alt="Instagram post" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
