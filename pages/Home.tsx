@@ -77,7 +77,7 @@ const Home: React.FC = () => {
     type: "HairSalon",
     data: {
       "name": "Wilson Barbershop Co.",
-      "image": "https://picsum.photos/1200/630",
+      "image": "https://wilsonbarber.co.uk/og-image.svg",
       "telephone": "0191 284 8786",
       "address": {
         "@type": "PostalAddress",
@@ -111,8 +111,6 @@ const Home: React.FC = () => {
 
   return (
     <>
-        {/* Import Montserrat ExtraLight font CSS */}
-        <link rel="stylesheet" href="/fonts.css" />
       <SEO 
         title="" 
         description="Wilson Barbershop Co. offers premium haircuts, beard trims, and hot towel shaves in Newcastle. Experience the art of traditional barbering."
@@ -124,9 +122,9 @@ const Home: React.FC = () => {
       <section className="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden bg-brand-dark">
         {/* Background Image with heavy darkening */}
         <div className="absolute inset-0 z-0">
-          <img 
-            src="https://picsum.photos/id/1005/1920/1080" 
-            alt="Barber working on client" 
+          <img
+            src="/images/insta1.jpg"
+            alt="Barber working on client at Wilson Barbershop Co"
             className="w-full h-full object-cover grayscale opacity-40"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/80 to-black/30" />
@@ -316,9 +314,9 @@ const Home: React.FC = () => {
           </div>
 
           <div className="text-center">
-            <a 
-              href="https://share.google/dalnPugAoDiixxu2c" 
-              target="_blank" 
+            <a
+              href="https://www.google.com/maps/place/Tenerife+Buildings,+6+Station+Rd,+South+Gosforth,+Newcastle+upon+Tyne+NE3+1QD,+UK/"
+              target="_blank"
               rel="noopener noreferrer"
               className="inline-block px-8 py-4 border border-white text-white hover:bg-white hover:text-black transition-all duration-300 uppercase tracking-widest text-sm font-medium"
             >
