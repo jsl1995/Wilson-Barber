@@ -18,43 +18,8 @@ interface ServiceCategory {
 const Services: React.FC = () => {
   const serviceCategories: ServiceCategory[] = [
     {
-      name: "Haircutting",
-      items: [
-        {
-          title: 'Standard Haircut',
-          price: '£22.00',
-          duration: '30 mins',
-          description: 'Classic cut suitable for most styles.'
-        },
-        {
-          title: 'Scissor Cut',
-          price: '£24.00',
-          duration: '30 mins',
-          description: 'Precision scissor work for longer, tailored styles.'
-        },
-        {
-          title: 'Skin Fades & Restyles',
-          price: '£24.00',
-          duration: '30 mins',
-          description: 'Modern fade down to skin or a complete style overhaul.'
-        },
-        {
-          title: "Under 12's",
-          price: '£19.00',
-          duration: '30 mins',
-          description: 'Expert grooming for the younger gentlemen.'
-        }
-      ]
-    },
-    {
       name: "Barber Packages",
       items: [
-        {
-          title: 'Dads & Little Lads',
-          price: '£38.00',
-          duration: '60 mins',
-          description: 'Father and son grooming experience.'
-        },
         {
           title: 'Haircut & Beard Trim',
           price: '£33.00',
@@ -82,19 +47,36 @@ const Services: React.FC = () => {
       ]
     },
     {
-      name: "Clipper Cut",
+      name: "Haircutting",
       items: [
         {
-          title: 'Buzz Cut',
-          price: '£19.00',
-          duration: '15 mins',
-          description: 'One grade all over.'
+          title: 'Skin Fades & Restyles',
+          price: '£22.00',
+          duration: '30 mins',
+          description: 'Modern fade down to skin or a complete style overhaul.'
         },
+        {
+          title: "Under 12's",
+          price: '£19.00',
+          duration: '30 mins',
+          description: 'Expert grooming for the younger gentlemen.'
+        }
+      ]
+    },
+    {
+      name: "Clipper Cut",
+      items: [
         {
           title: 'Back & Sides Only',
           price: '£15.50',
           duration: '15 mins',
           description: 'Tidy up around the ears and neck.'
+        },
+        {
+          title: 'Buzz Cut',
+          price: '£19.00',
+          duration: '15 mins',
+          description: 'One grade all over.'
         },
         {
           title: 'Beard Trim + 1 Guard',
@@ -108,16 +90,16 @@ const Services: React.FC = () => {
       name: "Shaving",
       items: [
         {
-          title: 'Luxury Hot Towel Shave',
-          price: '£24.50',
-          duration: '45 mins',
-          description: 'Traditional straight razor shave with premium products.'
-        },
-        {
           title: 'Hot Towel Line Up',
           price: '£17.00',
           duration: '15 mins',
           description: 'Sharp edges with hot towel treatment.'
+        },
+        {
+          title: 'Luxury Hot Towel Shave',
+          price: '£24.50',
+          duration: '45 mins',
+          description: 'Traditional straight razor shave with premium products.'
         }
       ]
     }
@@ -125,9 +107,9 @@ const Services: React.FC = () => {
 
   return (
     <>
-      <SEO 
-        title="Services & Pricing" 
-        description="View our full price list for haircuts, beard trims, and wet shaves. Professional barbering services in London."
+      <SEO
+        title="Services & Pricing"
+        description="View our full price list for haircuts, beard trims, and wet shaves. Professional barbering services in Newcastle."
         canonicalPath="/services"
       />
 
