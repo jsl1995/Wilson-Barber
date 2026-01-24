@@ -315,7 +315,7 @@ const Home: React.FC = () => {
 
           <div className="text-center">
             <a
-              href="https://www.google.com/maps/place/Tenerife+Buildings,+6+Station+Rd,+South+Gosforth,+Newcastle+upon+Tyne+NE3+1QD,+UK/"
+              href="https://maps.app.goo.gl/YpmqUWwnJYiXfU6u5"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block px-8 py-4 border border-white text-white hover:bg-white hover:text-black transition-all duration-300 uppercase tracking-widest text-sm font-medium"
