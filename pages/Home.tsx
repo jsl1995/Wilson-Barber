@@ -78,19 +78,33 @@ const Home: React.FC = () => {
     data: {
       "name": "Wilson Barbershop Co.",
       "image": "https://wilsonbarber.co.uk/og-image.svg",
+      "url": "https://www.wilsonbarber.co.uk",
+      "@id": "https://www.wilsonbarber.co.uk",
+      "description": "Family-friendly barbershop serving all ages in South Gosforth, Newcastle since 2013. Expert haircuts, beard trims, and traditional hot towel shaves.",
       "telephone": "0191 284 8786",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Tenerife Buildings, 6 Station Rd",
-        "addressLocality": "South Gosforth, Newcastle upon Tyne",
+        "addressLocality": "South Gosforth",
+        "addressRegion": "Newcastle upon Tyne",
         "postalCode": "NE3 1QD",
-        "addressCountry": "UK"
+        "addressCountry": "GB"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "54.9896",
+        "longitude": "-1.6065"
       },
       "priceRange": "££",
+      "currenciesAccepted": "GBP",
+      "paymentAccepted": "Cash, Credit Card",
+      "foundingDate": "2013",
       "aggregateRating": {
         "@type": "AggregateRating",
         "ratingValue": "4.6",
-        "reviewCount": "162"
+        "reviewCount": "162",
+        "bestRating": "5",
+        "worstRating": "1"
       },
       "openingHoursSpecification": [
         {
@@ -194,9 +208,9 @@ const Home: React.FC = () => {
 
   return (
     <>
-      <SEO 
-        title="" 
-        description="Wilson Barbershop Co. offers premium haircuts, beard trims, and hot towel shaves in Newcastle. Experience the art of traditional barbering."
+      <SEO
+        title="Barber Newcastle | Family Barbershop South Gosforth Since 2013"
+        description="Wilson Barbershop Co. offers premium haircuts, beard trims, and hot towel shaves for all ages in Newcastle. Family-friendly barbers serving South Gosforth since 2013. Book online today."
         canonicalPath="/"
         schema={structuredData}
       />

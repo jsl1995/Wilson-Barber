@@ -108,8 +108,8 @@ const Services: React.FC = () => {
   return (
     <>
       <SEO
-        title="Services & Pricing"
-        description="View our full price list for haircuts, beard trims, and wet shaves. Professional barbering services in Newcastle."
+        title="Services & Pricing | Haircuts from £15.50 | All Ages Welcome"
+        description="Complete price list for men, women, and children. Professional barbering services for all ages in Newcastle. Haircuts from £15.50, packages from £28. Book online today."
         canonicalPath="/services"
       />
 

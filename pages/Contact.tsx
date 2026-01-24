@@ -6,9 +6,9 @@ import Button from '../components/Button';
 const Contact: React.FC = () => {
   return (
     <>
-      <SEO 
-        title="Contact Us" 
-        description="Find Wilson Barber Co. in Newcastle. Check our opening hours, location map, and contact details to book your next appointment."
+      <SEO
+        title="Contact Us | South Gosforth, Newcastle | Wilson Barber Co."
+        description="Visit Wilson Barber Co. in South Gosforth, Newcastle. Family-friendly barbershop serving all ages. Opening hours, location map, and contact details. Book your appointment today."
         canonicalPath="/contact"
       />
 
