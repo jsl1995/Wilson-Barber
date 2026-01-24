@@ -123,7 +123,7 @@ const Home: React.FC = () => {
         {/* Background Image with heavy darkening */}
         <div className="absolute inset-0 z-0">
           <img
-            src="/images/insta3.jpg"
+            src="/images/hero.webp"
             alt="Barber working on client at Wilson Barbershop Co"
             className="w-full h-full object-cover grayscale opacity-40"
           />
