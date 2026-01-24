@@ -1,9 +1,65 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Star, Clock, MapPin, CheckCircle2, ExternalLink, Instagram } from 'lucide-react';
 import SEO from '../components/SEO';
 import Button from '../components/Button';
 import Mustache from '../components/Mustache';
+
+// Opening hours: Tue-Fri 10:00-19:00, Sat 08:00-16:00, Sun-Mon Closed
+const getOpenStatus = () => {
+  const now = new Date();
+  const day = now.getDay(); // 0 = Sunday, 1 = Monday, etc.
+  const hour = now.getHours();
+  const minutes = now.getMinutes();
+  const currentTime = hour + minutes / 60;
+
+  const schedule: { [key: number]: { open: number; close: number; closeText: string } | null } = {
+    0: null, // Sunday - Closed
+    1: null, // Monday - Closed
+    2: { open: 10, close: 19, closeText: '7pm' }, // Tuesday
+    3: { open: 10, close: 19, closeText: '7pm' }, // Wednesday
+    4: { open: 10, close: 19, closeText: '7pm' }, // Thursday
+    5: { open: 10, close: 19, closeText: '7pm' }, // Friday
+    6: { open: 8, close: 16, closeText: '4pm' },  // Saturday
+  };
+
+  const todaySchedule = schedule[day];
+
+  if (!todaySchedule) {
+    return { isOpen: false, text: 'Closed today', color: 'text-red-400' };
+  }
+
+  if (currentTime < todaySchedule.open) {
+    return { isOpen: false, text: `Opens at ${todaySchedule.open}am`, color: 'text-yellow-400' };
+  }
+
+  if (currentTime >= todaySchedule.close) {
+    return { isOpen: false, text: 'Closed for today', color: 'text-red-400' };
+  }
+
+  return { isOpen: true, text: `Open today until ${todaySchedule.closeText}`, color: 'text-green-400' };
+};
+
+const OpenStatus: React.FC = () => {
+  const [status, setStatus] = useState(getOpenStatus());
+
+  useEffect(() => {
+    // Update every minute
+    const interval = setInterval(() => {
+      setStatus(getOpenStatus());
+    }, 60000);
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <div className="flex items-center justify-center gap-2 mb-6">
+      <span className={`inline-block w-2 h-2 rounded-full ${status.isOpen ? 'bg-green-400 animate-pulse' : 'bg-red-400'}`}></span>
+      <span className={`text-sm font-medium tracking-wide ${status.color}`}>
+        {status.text}
+      </span>
+    </div>
+  );
+};
 
 const Home: React.FC = () => {
   const structuredData = {
@@ -84,9 +140,10 @@ const Home: React.FC = () => {
             </span>
           </div>
 
-          <p className="text-lg md:text-xl text-neutral-300 mb-10 max-w-xl mx-auto leading-relaxed font-light">
+          <p className="text-lg md:text-xl text-neutral-300 mb-6 max-w-xl mx-auto leading-relaxed font-light">
             South Gosforth based, our story goes back to 2013. Book now for a trim in a relaxed setting with Perry and Flynn.
           </p>
+          <OpenStatus />
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
             <a href="https://belliata.com/online-booking?vi=67638#/" target="_blank" rel="noopener noreferrer">
               <Button size="lg" className="w-full sm:w-auto min-w-[200px]">
