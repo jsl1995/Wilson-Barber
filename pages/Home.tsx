@@ -13,28 +13,39 @@ const getOpenStatus = () => {
   const minutes = now.getMinutes();
   const currentTime = hour + minutes / 60;
 
-  const schedule: { [key: number]: { open: number; close: number; closeText: string } | null } = {
+  const schedule: { [key: number]: { open: number; close: number; closeText: string; openText: string } | null } = {
     0: null, // Sunday - Closed
     1: null, // Monday - Closed
-    2: { open: 10, close: 19, closeText: '7pm' }, // Tuesday
-    3: { open: 10, close: 19, closeText: '7pm' }, // Wednesday
-    4: { open: 10, close: 19, closeText: '7pm' }, // Thursday
-    5: { open: 10, close: 19, closeText: '7pm' }, // Friday
-    6: { open: 8, close: 16, closeText: '4pm' },  // Saturday
+    2: { open: 10, close: 19, closeText: '7pm', openText: '10am' }, // Tuesday
+    3: { open: 10, close: 19, closeText: '7pm', openText: '10am' }, // Wednesday
+    4: { open: 10, close: 19, closeText: '7pm', openText: '10am' }, // Thursday
+    5: { open: 10, close: 19, closeText: '7pm', openText: '10am' }, // Friday
+    6: { open: 8, close: 16, closeText: '4pm', openText: '8am' },  // Saturday
   };
 
   const todaySchedule = schedule[day];
 
+  // Sunday or Monday - show when we're back (Tuesday at 10am)
   if (!todaySchedule) {
-    return { isOpen: false, text: 'Closed today', color: 'text-red-400' };
+    return { isOpen: false, text: 'Back open Tuesday at 10am', color: 'text-yellow-400' };
   }
 
   if (currentTime < todaySchedule.open) {
-    return { isOpen: false, text: `Opens at ${todaySchedule.open}am`, color: 'text-yellow-400' };
+    return { isOpen: false, text: `Opens at ${todaySchedule.openText}`, color: 'text-yellow-400' };
   }
 
   if (currentTime >= todaySchedule.close) {
-    return { isOpen: false, text: 'Closed for today', color: 'text-red-400' };
+    // After closing, show next opening day
+    if (day === 6) {
+      // Saturday after close - next is Tuesday
+      return { isOpen: false, text: 'Back open Tuesday at 10am', color: 'text-yellow-400' };
+    }
+    // Weekday after close - next day
+    const nextDay = schedule[day + 1];
+    if (nextDay) {
+      return { isOpen: false, text: `Back open tomorrow at ${nextDay.openText}`, color: 'text-yellow-400' };
+    }
+    return { isOpen: false, text: 'Back open Tuesday at 10am', color: 'text-yellow-400' };
   }
 
   return { isOpen: true, text: `Open today until ${todaySchedule.closeText}`, color: 'text-green-400' };
