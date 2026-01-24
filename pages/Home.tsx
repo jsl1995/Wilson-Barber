@@ -217,12 +217,12 @@ const Home: React.FC = () => {
                   
                   {/* Grid of "posts" */}
                   <div className="grid grid-cols-2 gap-3 mb-6">
-                     {[
-                        { src: `${import.meta.env.BASE_URL}images/insta1.jpg`, alt: "Kids haircut at Wilson Barbershop South Gosforth" },
-                        { src: `${import.meta.env.BASE_URL}images/insta2.jpg`, alt: "Happy customer at Wilson Barber Co Newcastle" },
-                        { src: `${import.meta.env.BASE_URL}images/insta3.jpg`, alt: "Textured mullet haircut by Wilson Barber Co" },
-                        { src: `${import.meta.env.BASE_URL}images/insta4.jpg`, alt: "Skin fade haircut at Wilson Barbershop Newcastle" }
-                     ].map((img, idx) => (
+                    {[
+                      { src: "/images/insta1.jpg", alt: "Kids haircut at Wilson Barbershop South Gosforth" },
+                      { src: "/images/insta2.jpg", alt: "Happy customer at Wilson Barber Co Newcastle" },
+                      { src: "/images/insta3.jpg", alt: "Textured mullet haircut by Wilson Barber Co" },
+                      { src: "/images/insta4.jpg", alt: "Skin fade haircut at Wilson Barbershop Newcastle" }
+                    ].map((img, idx) => (
                         <a key={idx} href="https://www.instagram.com/wilsonbarberco/" target="_blank" rel="noopener noreferrer" className="block relative aspect-square overflow-hidden group">
                            <img src={img.src} alt={img.alt} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
                            <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
