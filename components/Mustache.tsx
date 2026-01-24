@@ -7,7 +7,7 @@ interface MustacheProps {
 const Mustache: React.FC<MustacheProps> = ({ className = "w-24 h-8" }) => {
   return (
     <svg 
-      viewBox="0 0 200 60" 
+      viewBox="0 0 800 275" 
       className={className} 
       xmlns="http://www.w3.org/2000/svg"
       aria-hidden="true"
@@ -16,21 +16,19 @@ const Mustache: React.FC<MustacheProps> = ({ className = "w-24 h-8" }) => {
         <pattern 
           id="diagonalHatch" 
           patternUnits="userSpaceOnUse" 
-          width="8" 
-          height="8" 
+          width="20" 
+          height="20" 
           patternTransform="rotate(45)"
         >
-          <rect width="4" height="8" transform="translate(0,0)" fill="currentColor" />
+          <rect width="10" height="20" transform="translate(0,0)" fill="currentColor" />
         </pattern>
       </defs>
       
-      {/* Handlebar Shape filled with diagonal stripes */}
+      {/* Custom mustache shape filled with diagonal stripes */}
       <path 
-        d="M100 25 C 125 25 145 35 160 30 C 175 25 190 10 195 15 C 200 20 195 35 180 40 C 160 48 130 50 100 45 C 70 50 40 48 20 40 C 5 35 0 20 5 15 C 10 10 25 25 40 30 C 55 35 75 25 100 25 Z" 
+        d="M797.35 111.562C797.35 111.562 772.911 158.462 727.086 155.117C681.213 151.772 632.334 44.5452 540.611 11.0249C448.911 -22.4954 399.986 31.1171 399.986 31.1171C399.986 31.1171 351.084 -22.4969 259.409 11.0249C167.709 44.5452 118.809 151.772 72.9594 155.117C27.1094 158.462 2.64689 111.562 2.64689 111.562C2.64689 111.562 -12.6359 151.772 30.1859 208.731C72.9594 265.689 192.148 289.639 268.589 265.689C354.136 238.883 399.986 171.891 399.986 171.891C399.986 171.891 442.784 242.251 531.431 265.689C608.702 286.148 727.086 265.689 769.859 208.731C812.633 151.773 797.35 111.562 797.35 111.562Z" 
         fill="url(#diagonalHatch)"
       />
-      
-      {/* Optional: Add a solid outline if visibility is low, but for this specific look, the hatch is the fill */}
     </svg>
   );
 };
