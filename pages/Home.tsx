@@ -111,6 +111,8 @@ const Home: React.FC = () => {
 
   return (
     <>
+        {/* Import Montserrat ExtraLight font CSS */}
+        <link rel="stylesheet" href="/fonts.css" />
       <SEO 
         title="" 
         description="Wilson Barbershop Co. offers premium haircuts, beard trims, and hot towel shaves in Newcastle. Experience the art of traditional barbering."
@@ -139,13 +141,13 @@ const Home: React.FC = () => {
             <h1 className="font-serif text-5xl md:text-7xl font-black tracking-widest text-white leading-none uppercase drop-shadow-lg text-center">
               Wilson
             </h1>
-            <div className="flex items-center gap-4 mt-4">
-              <span className="h-[1px] w-12 bg-white/50"></span>
-              <span className="text-sm md:text-lg font-bold tracking-[0.4em] text-white/90 uppercase text-shadow-sm">
-                Barbershop Co.
-              </span>
-              <span className="h-[1px] w-12 bg-white/50"></span>
-            </div>
+              <div className="flex items-center gap-4 mt-4">
+                <span className="h-[1px] w-12 bg-white/50"></span>
+                <span className="montserrat-extralight text-sm md:text-lg tracking-[0.4em] text-white/90 uppercase text-shadow-sm">
+                  Barbershop Co.
+                </span>
+                <span className="h-[1px] w-12 bg-white/50"></span>
+              </div>
             <span className="text-[0.6rem] md:text-xs font-medium tracking-[0.2em] text-white/60 uppercase mt-4">
               Est. 2013
             </span>
