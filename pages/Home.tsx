@@ -174,7 +174,7 @@ const Home: React.FC = () => {
               <h2 className="font-serif text-5xl font-bold text-white mb-6">More Than Just a Haircut</h2>
               <div className="h-1 w-20 bg-white mb-8"></div>
               <p className="text-neutral-400 mb-8 leading-relaxed text-lg font-light">
-                At Wilson Barbershop Co., we believe that a haircut is an experience, not just a chore. Our shop is a sanctuary where you can relax, unwind, and enjoy the company of like-minded individuals while receiving top-tier grooming services.
+                At Wilsons, customers come for the haircut and stay for the craic. We're a relaxed no-fuss barbers so book in and grab yourself a drink while you wait!
               </p>
               <ul className="space-y-4 mb-10">
                 {[
