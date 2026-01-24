@@ -300,14 +300,14 @@ const Home: React.FC = () => {
                 date: "1 month ago"
               },
               {
-                text: "Perry s salon has been my go to A1 since Day 1. I have tried several salons in this part of the city but, none of them could match this salons vibe and hair cuts. Definitely recommended to try it at least once. Cheers!",
-                author: "Akshit P.",
-                date: "1 year ago"
-              },
-              {
                 text: "Managed to get a same day booking due to being let down by my regular barber. glad i was let down now as this will be my new go to. Thanks Perry, love the cut!",
                 author: "Neil P.",
                 date: "5 months ago"
+              },
+              {
+                text: "Perry s salon has been my go to A1 since Day 1. I have tried several salons in this part of the city but, none of them could match this salons vibe and hair cuts. Definitely recommended to try it at least once. Cheers!",
+                author: "Akshit P.",
+                date: "1 year ago"
               },
               {
                 text: "Searched years for a barber I liked and was happy coming back too! Perry is an absolute godsend, always comfortable, class appointment system and a man who genuinely cares about the service he gives you. Always great personalised recommendations and advice. Can't recommend highly enough!",
