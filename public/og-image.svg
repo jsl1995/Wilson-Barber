@@ -1,0 +1,23 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <!-- Dark background -->
+  <rect width="1200" height="630" fill="#050505"/>
+  
+  <!-- Diagonal stripe pattern -->
+  <defs>
+    <pattern id="stripes" patternUnits="userSpaceOnUse" width="20" height="20" patternTransform="rotate(45)">
+      <rect width="10" height="20" fill="#ffffff"/>
+    </pattern>
+  </defs>
+  
+  <!-- Mustache centered -->
+  <g transform="translate(300, 200) scale(0.75)">
+    <path 
+      d="M797.35 111.562C797.35 111.562 772.911 158.462 727.086 155.117C681.213 151.772 632.334 44.5452 540.611 11.0249C448.911 -22.4954 399.986 31.1171 399.986 31.1171C399.986 31.1171 351.084 -22.4969 259.409 11.0249C167.709 44.5452 118.809 151.772 72.9594 155.117C27.1094 158.462 2.64689 111.562 2.64689 111.562C2.64689 111.562 -12.6359 151.772 30.1859 208.731C72.9594 265.689 192.148 289.639 268.589 265.689C354.136 238.883 399.986 171.891 399.986 171.891C399.986 171.891 442.784 242.251 531.431 265.689C608.702 286.148 727.086 265.689 769.859 208.731C812.633 151.773 797.35 111.562 797.35 111.562Z" 
+      fill="url(#stripes)"
+    />
+  </g>
+  
+  <!-- Text -->
+  <text x="600" y="480" text-anchor="middle" font-family="Georgia, serif" font-size="48" font-weight="bold" fill="#ffffff" letter-spacing="8">WILSON</text>
+  <text x="600" y="530" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="#999999" letter-spacing="6">BARBERSHOP CO.</text>
+</svg>
