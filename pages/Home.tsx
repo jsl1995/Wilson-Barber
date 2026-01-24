@@ -109,6 +109,89 @@ const Home: React.FC = () => {
     }
   };
 
+  // Reviews data
+  const reviews = [
+    {
+      text: "Been coming to Perry ever since I moved up to Newcastle and never been disappointed. Good craic and always welcoming with a good atmosphere in the shop!",
+      author: "Liam I.",
+      date: "2 weeks ago"
+    },
+    {
+      text: "Have been coming here for years now. Never a bad hair cut. Have gone elsewhere on one or two occasions but have always regretted it.",
+      author: "Richard P.",
+      date: "1 month ago"
+    },
+    {
+      text: "Great service from Perry! Very professional, good craic, friendly and really knows his stuff. Can't recommend more!",
+      author: "R. Black",
+      date: "1 month ago"
+    },
+    {
+      text: "Managed to get a same day booking due to being let down by my regular barber. glad i was let down now as this will be my new go to. Thanks Perry, love the cut!",
+      author: "Neil P.",
+      date: "5 months ago"
+    },
+    {
+      text: "Perry s salon has been my go to A1 since Day 1. I have tried several salons in this part of the city but, none of them could match this salons vibe and hair cuts. Definitely recommended to try it at least once. Cheers!",
+      author: "Akshit P.",
+      date: "1 year ago"
+    },
+    {
+      text: "Searched years for a barber I liked and was happy coming back too! Perry is an absolute godsend, always comfortable, class appointment system and a man who genuinely cares about the service he gives you. Always great personalised recommendations and advice. Can't recommend highly enough!",
+      author: "Craig M.",
+      date: "2 years ago"
+    }
+  ];
+
+  // Carousel state for mobile
+  const [currentReviewIndex, setCurrentReviewIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+  const [touchStart, setTouchStart] = useState<number>(0);
+  const [touchEnd, setTouchEnd] = useState<number>(0);
+
+  // Auto-scroll effect
+  useEffect(() => {
+    if (isPaused) return;
+
+    const interval = setInterval(() => {
+      setCurrentReviewIndex((prevIndex) =>
+        (prevIndex + 1) % reviews.length
+      );
+    }, 5000); // 5 seconds per review
+
+    return () => clearInterval(interval);
+  }, [isPaused, reviews.length]);
+
+  // Touch handlers for swipe navigation
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchStart(e.touches[0].clientX);
+    setIsPaused(true);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.touches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > 50;
+    const isRightSwipe = distance < -50;
+
+    if (isLeftSwipe && currentReviewIndex < reviews.length - 1) {
+      setCurrentReviewIndex(prev => prev + 1);
+    }
+
+    if (isRightSwipe && currentReviewIndex > 0) {
+      setCurrentReviewIndex(prev => prev - 1);
+    }
+
+    setTouchStart(0);
+    setTouchEnd(0);
+    setTimeout(() => setIsPaused(false), 3000);
+  };
+
   return (
     <>
       <SEO 
@@ -282,39 +365,9 @@ const Home: React.FC = () => {
             <Mustache className="w-24 h-8 text-white/50 mx-auto" />
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-            {[
-              {
-                text: "Been coming to Perry ever since I moved up to Newcastle and never been disappointed. Good craic and always welcoming with a good atmosphere in the shop!",
-                author: "Liam I.",
-                date: "2 weeks ago"
-              },
-              {
-                text: "Have been coming here for years now. Never a bad hair cut. Have gone elsewhere on one or two occasions but have always regretted it.",
-                author: "Richard P.",
-                date: "1 month ago"
-              },
-              {
-                text: "Great service from Perry! Very professional, good craic, friendly and really knows his stuff. Can't recommend more!",
-                author: "R. Black",
-                date: "1 month ago"
-              },
-              {
-                text: "Managed to get a same day booking due to being let down by my regular barber. glad i was let down now as this will be my new go to. Thanks Perry, love the cut!",
-                author: "Neil P.",
-                date: "5 months ago"
-              },
-              {
-                text: "Perry s salon has been my go to A1 since Day 1. I have tried several salons in this part of the city but, none of them could match this salons vibe and hair cuts. Definitely recommended to try it at least once. Cheers!",
-                author: "Akshit P.",
-                date: "1 year ago"
-              },
-              {
-                text: "Searched years for a barber I liked and was happy coming back too! Perry is an absolute godsend, always comfortable, class appointment system and a man who genuinely cares about the service he gives you. Always great personalised recommendations and advice. Can't recommend highly enough!",
-                author: "Craig M.",
-                date: "2 years ago"
-              }
-            ].map((review, i) => (
+          {/* Desktop Grid Layout */}
+          <div className="hidden md:grid md:grid-cols-3 gap-8 mb-16">
+            {reviews.map((review, i) => (
               <div key={i} className="bg-black p-10 border border-neutral-900 hover:border-white transition-colors duration-500 relative group">
                 <div className="flex text-white mb-6">
                   {[...Array(5)].map((_, j) => <Star key={j} className="h-4 w-4 fill-current" />)}
@@ -326,6 +379,54 @@ const Home: React.FC = () => {
                 </div>
               </div>
             ))}
+          </div>
+
+          {/* Mobile Carousel */}
+          <div className="block md:hidden mb-16">
+            <div className="relative overflow-hidden">
+              <div
+                className="flex transition-transform duration-500 ease-out"
+                style={{ transform: `translateX(-${currentReviewIndex * 100}%)` }}
+                onTouchStart={handleTouchStart}
+                onTouchMove={handleTouchMove}
+                onTouchEnd={handleTouchEnd}
+              >
+                {reviews.map((review, i) => (
+                  <div key={i} className="w-full flex-shrink-0 px-4">
+                    <div className="bg-black p-10 border border-neutral-900 hover:border-white transition-colors duration-500 relative group">
+                      <div className="flex text-white mb-6">
+                        {[...Array(5)].map((_, j) => <Star key={j} className="h-4 w-4 fill-current" />)}
+                      </div>
+                      <p className="text-neutral-300 mb-8 leading-relaxed font-light">"{review.text}"</p>
+                      <div className="flex items-center justify-between mt-auto border-t border-neutral-900 pt-6">
+                        <span className="text-white font-bold uppercase tracking-wide text-sm">{review.author}</span>
+                        <span className="text-neutral-600 text-xs">{review.date}</span>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Dot indicators */}
+            <div className="flex justify-center gap-2 mt-8">
+              {reviews.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => {
+                    setCurrentReviewIndex(index);
+                    setIsPaused(true);
+                    setTimeout(() => setIsPaused(false), 3000);
+                  }}
+                  className={`h-2 rounded-full transition-all duration-300 ${
+                    index === currentReviewIndex
+                      ? 'w-8 bg-white'
+                      : 'w-2 bg-neutral-600 hover:bg-neutral-400'
+                  }`}
+                  aria-label={`Go to review ${index + 1}`}
+                />
+              ))}
+            </div>
           </div>
 
           <div className="text-center">
