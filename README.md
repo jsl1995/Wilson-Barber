@@ -1,20 +1,68 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# Wilson Barbershop Co.
 
-# Run and deploy your AI Studio app
+Marketing website for Wilson Barbershop Co., a family-friendly barbershop in South Gosforth, Newcastle upon Tyne. Established 2013.
 
-This contains everything you need to run your app locally.
+**Live site:** [wilsonbarber.co.uk](https://wilsonbarber.co.uk)
 
-View your app in AI Studio: https://ai.studio/apps/drive/1cKKQWsH9V7V94_sPSA0Xl4yi9sv2aedA
+## Tech Stack
 
-## Run Locally
+- **React 19** with TypeScript
+- **Vite** for build tooling
+- **Tailwind CSS** for styling
+- **React Router** (HashRouter) for navigation
+- **Vercel** for hosting
 
-**Prerequisites:**  Node.js
+## Local Development
 
+```bash
+# Install dependencies
+npm install
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+# Start dev server (localhost:3000)
+npm run dev
+
+# Production build
+npm run build
+
+# Preview production build
+npm run preview
+```
+
+## Project Structure
+
+```
+├── components/       # Reusable UI components
+│   ├── Navbar.tsx
+│   ├── Footer.tsx
+│   ├── Button.tsx
+│   ├── SEO.tsx
+│   └── Mustache.tsx
+├── pages/            # Page components
+│   ├── Home.tsx
+│   ├── Services.tsx
+│   ├── Contact.tsx
+│   └── About.tsx
+├── public/           # Static assets
+│   ├── images/
+│   ├── sitemap.xml
+│   └── robots.txt
+├── App.tsx           # Router setup
+├── index.html        # HTML template & Tailwind config
+└── types.ts          # TypeScript interfaces
+```
+
+## Features
+
+- Online booking integration (Belliata)
+- Dynamic open/closed status indicator
+- Google Maps embed
+- SEO optimised with JSON-LD schema markup
+- Mobile-responsive design
+- Google Reviews integration
+
+## Contact
+
+- **Address:** Tenerife Buildings, 6 Station Rd, South Gosforth, Newcastle upon Tyne, NE3 1QD
+- **Phone:** 0191 284 8786
+- **Email:** information@wilsonbarber.co.uk
+- **Instagram:** [@wilsonbarberco](https://instagram.com/wilsonbarberco)
