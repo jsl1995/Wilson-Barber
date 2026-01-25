@@ -16,6 +16,71 @@ interface ServiceCategory {
 }
 
 const Services: React.FC = () => {
+  const serviceSchema = {
+    type: "Service",
+    data: {
+      "name": "Wilson Barbershop Co. Services",
+      "serviceType": "Barber Services",
+      "provider": {
+        "@type": "HairSalon",
+        "name": "Wilson Barbershop Co.",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Tenerife Buildings, 6 Station Rd",
+          "addressLocality": "South Gosforth",
+          "addressRegion": "Newcastle upon Tyne",
+          "postalCode": "NE3 1QD",
+          "addressCountry": "GB"
+        }
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": "Newcastle upon Tyne"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Barbering Services",
+        "itemListElement": [
+          {
+            "@type": "OfferCatalog",
+            "name": "Barber Packages",
+            "itemListElement": [
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Haircut & Beard Trim" }, "price": "33.00", "priceCurrency": "GBP" },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Haircut & Beard Razor" }, "price": "35.00", "priceCurrency": "GBP" },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Haircut & Hot Towel Line Up" }, "priceSpecification": { "@type": "PriceSpecification", "minPrice": "33.00", "priceCurrency": "GBP" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Buzz Cut & Beard Trim" }, "price": "28.00", "priceCurrency": "GBP" }
+            ]
+          },
+          {
+            "@type": "OfferCatalog",
+            "name": "Haircutting",
+            "itemListElement": [
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Skin Fades & Restyles" }, "price": "22.00", "priceCurrency": "GBP" },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Under 12's Haircut" }, "price": "19.00", "priceCurrency": "GBP" }
+            ]
+          },
+          {
+            "@type": "OfferCatalog",
+            "name": "Clipper Cut",
+            "itemListElement": [
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Back & Sides Only" }, "price": "15.50", "priceCurrency": "GBP" },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Buzz Cut" }, "price": "19.00", "priceCurrency": "GBP" },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Beard Trim + 1 Guard" }, "price": "18.00", "priceCurrency": "GBP" }
+            ]
+          },
+          {
+            "@type": "OfferCatalog",
+            "name": "Shaving",
+            "itemListElement": [
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Hot Towel Line Up" }, "price": "17.00", "priceCurrency": "GBP" },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Luxury Hot Towel Shave" }, "price": "24.50", "priceCurrency": "GBP" }
+            ]
+          }
+        ]
+      }
+    }
+  };
+
   const serviceCategories: ServiceCategory[] = [
     {
       name: "Barber Packages",
@@ -111,6 +176,7 @@ const Services: React.FC = () => {
         title="Services & Pricing | Haircuts from £15.50 | All Ages Welcome"
         description="Complete price list for men, women, and children. Professional barbering services for all ages in Newcastle. Haircuts from £15.50, packages from £28. Book online today."
         canonicalPath="/services"
+        schema={serviceSchema}
       />
 
       <div className="pt-24 min-h-screen bg-brand-dark">

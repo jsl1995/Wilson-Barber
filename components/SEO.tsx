@@ -30,7 +30,7 @@ const SEO: React.FC<SEOProps> = ({ title, description, canonicalPath, schema }) 
       document.head.appendChild(linkCanonical);
     }
     if (canonicalPath) {
-      linkCanonical.setAttribute('href', `https://www.wilsonbarber.co.uk${canonicalPath}`);
+      linkCanonical.setAttribute('href', `https://wilsonbarber.co.uk${canonicalPath}`);
     }
 
     // Inject JSON-LD Schema

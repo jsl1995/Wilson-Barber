@@ -77,11 +77,14 @@ const Home: React.FC = () => {
     type: "HairSalon",
     data: {
       "name": "Wilson Barbershop Co.",
-      "image": "https://wilsonbarber.co.uk/og-image.svg",
-      "url": "https://www.wilsonbarber.co.uk",
-      "@id": "https://www.wilsonbarber.co.uk",
+      "image": "https://wilsonbarber.co.uk/og-image.png",
+      "url": "https://wilsonbarber.co.uk",
+      "@id": "https://wilsonbarber.co.uk",
       "description": "Family-friendly barbershop serving all ages in South Gosforth, Newcastle since 2013. Expert haircuts, beard trims, and traditional hot towel shaves.",
       "telephone": "0191 284 8786",
+      "sameAs": [
+        "https://www.instagram.com/wilsonbarberco/"
+      ],
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Tenerife Buildings, 6 Station Rd",
@@ -106,6 +109,26 @@ const Home: React.FC = () => {
         "bestRating": "5",
         "worstRating": "1"
       },
+      "review": [
+        {
+          "@type": "Review",
+          "reviewRating": { "@type": "Rating", "ratingValue": "5" },
+          "author": { "@type": "Person", "name": "Liam I." },
+          "reviewBody": "Been coming to Perry ever since I moved up to Newcastle and never been disappointed. Good craic and always welcoming with a good atmosphere in the shop!"
+        },
+        {
+          "@type": "Review",
+          "reviewRating": { "@type": "Rating", "ratingValue": "5" },
+          "author": { "@type": "Person", "name": "Richard P." },
+          "reviewBody": "Have been coming here for years now. Never a bad hair cut. Have gone elsewhere on one or two occasions but have always regretted it."
+        },
+        {
+          "@type": "Review",
+          "reviewRating": { "@type": "Rating", "ratingValue": "5" },
+          "author": { "@type": "Person", "name": "R. Black" },
+          "reviewBody": "Great service from Perry! Very professional, good craic, friendly and really knows his stuff. Can't recommend more!"
+        }
+      ],
       "openingHoursSpecification": [
         {
           "@type": "OpeningHoursSpecification",
