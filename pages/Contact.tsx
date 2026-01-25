@@ -1,7 +1,6 @@
 import React from 'react';
-import { MapPin, Phone, Mail, Clock } from 'lucide-react';
+import { MapPin, Phone, Clock } from 'lucide-react';
 import SEO from '../components/SEO';
-import Button from '../components/Button';
 
 const Contact: React.FC = () => {
   return (
@@ -83,17 +82,16 @@ const Contact: React.FC = () => {
 
             {/* Map Column */}
             <div className="h-full min-h-[400px] bg-neutral-800 rounded-sm overflow-hidden relative border border-neutral-700">
-              {/* Placeholder for map */}
-              <div className="absolute inset-0 bg-neutral-800 flex items-center justify-center">
-                <div className="text-center p-8">
-                   <MapPin className="h-16 w-16 text-neutral-600 mx-auto mb-4" />
-                   <h3 className="text-white font-bold mb-2">Find Us In South Gosforth</h3>
-                   <p className="text-neutral-500 text-sm mb-6">Tenerife Buildings, 6 Station Rd</p>
-                   <Button variant="outline" onClick={() => window.open('https://www.google.com/maps/search/?api=1&query=Wilson+Barbershop+Co.+Newcastle', '_blank')}>
-                     Get Directions
-                   </Button>
-                </div>
-              </div>
+              <iframe
+                src="https://www.google.com/maps?q=Wilson+Barbershop+Co.,+6+Station+Rd,+South+Gosforth,+Newcastle+upon+Tyne+NE3+1QD&output=embed"
+                width="100%"
+                height="100%"
+                style={{ border: 0, position: 'absolute', top: 0, left: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Wilson Barbershop Co. location map"
+              />
             </div>
           </div>
         </div>
