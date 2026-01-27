@@ -5,6 +5,7 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import Services from './pages/Services';
 import Contact from './pages/Contact';
+import Blog from './pages/Blog';
 
 // Scroll to top wrapper
 const ScrollToTop = ({ children }: { children?: React.ReactNode }) => {
@@ -26,6 +27,8 @@ const App: React.FC = () => {
               <Route path="/" element={<Home />} />
               <Route path="/services" element={<Services />} />
               <Route path="/contact" element={<Contact />} />
+              {/* Blog page exists but is hidden from navigation */}
+              <Route path="/blog" element={<Blog />} />
             </Routes>
           </main>
           <Footer />
