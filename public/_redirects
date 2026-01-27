@@ -1,3 +1,0 @@
-# Cloudflare Pages SPA routing
-# Serve index.html for all routes so React Router can handle them
-/*    /index.html   200
