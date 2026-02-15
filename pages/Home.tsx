@@ -272,7 +272,7 @@ const Home: React.FC = () => {
           </div>
 
           <p className="text-lg md:text-xl text-neutral-300 mb-6 max-w-xl mx-auto leading-relaxed font-light">
-            South Gosforth based, our story goes back to 2013. Book now for a trim in a relaxed setting with Perry and Flynn.
+            South Gosforth based, our story goes back to 2013. Book now for a trim in a relaxed setting with Perry.
           </p>
           <OpenStatus />
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
