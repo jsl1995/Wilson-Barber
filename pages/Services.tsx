@@ -5,7 +5,6 @@ import Mustache from '../components/Mustache';
 
 interface ServiceItem {
   title: string;
-  price: string;
   duration: string;
   description: string;
 }
@@ -45,35 +44,35 @@ const Services: React.FC = () => {
             "@type": "OfferCatalog",
             "name": "Barber Packages",
             "itemListElement": [
-              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Haircut & Beard Trim" }, "price": "33.00", "priceCurrency": "GBP" },
-              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Haircut & Beard Razor" }, "price": "35.00", "priceCurrency": "GBP" },
-              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Haircut & Hot Towel Line Up" }, "priceSpecification": { "@type": "PriceSpecification", "minPrice": "33.00", "priceCurrency": "GBP" } },
-              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Buzz Cut & Beard Trim" }, "price": "28.00", "priceCurrency": "GBP" }
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Haircut & Beard Trim" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Haircut & Beard Razor" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Haircut & Hot Towel Line Up" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Buzz Cut & Beard Trim" } }
             ]
           },
           {
             "@type": "OfferCatalog",
             "name": "Haircutting",
             "itemListElement": [
-              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Skin Fades & Restyles" }, "price": "22.00", "priceCurrency": "GBP" },
-              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Under 12's Haircut" }, "price": "19.00", "priceCurrency": "GBP" }
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Skin Fades & Restyles" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Under 12's Haircut" } }
             ]
           },
           {
             "@type": "OfferCatalog",
             "name": "Clipper Cut",
             "itemListElement": [
-              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Back & Sides Only" }, "price": "15.50", "priceCurrency": "GBP" },
-              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Buzz Cut" }, "price": "19.00", "priceCurrency": "GBP" },
-              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Beard Trim + 1 Guard" }, "price": "18.00", "priceCurrency": "GBP" }
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Back & Sides Only" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Buzz Cut" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Beard Trim + 1 Guard" } }
             ]
           },
           {
             "@type": "OfferCatalog",
             "name": "Shaving",
             "itemListElement": [
-              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Hot Towel Line Up" }, "price": "17.00", "priceCurrency": "GBP" },
-              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Luxury Hot Towel Shave" }, "price": "24.50", "priceCurrency": "GBP" }
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Hot Towel Line Up" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Luxury Hot Towel Shave" } }
             ]
           }
         ]
@@ -87,25 +86,21 @@ const Services: React.FC = () => {
       items: [
         {
           title: 'Haircut & Beard Trim',
-          price: '£33.00',
           duration: '45 mins',
           description: 'Full haircut paired with a tidy beard trim.'
         },
         {
           title: 'Haircut & Beard Razor',
-          price: '£35.00',
           duration: '45 mins',
           description: 'Haircut plus beard shaping with a straight razor.'
         },
         {
           title: 'Haircut & Hot Towel Line Up',
-          price: 'From £33.00',
           duration: '45 mins',
           description: 'Cut with a razor sharp hairline finish.'
         },
         {
           title: 'Buzz Cut & Beard Trim',
-          price: '£28.00',
           duration: '30 mins',
           description: 'Uniform buzz cut with beard grooming.'
         }
@@ -116,13 +111,11 @@ const Services: React.FC = () => {
       items: [
         {
           title: 'Skin Fades & Restyles',
-          price: '£22.00',
           duration: '30 mins',
           description: 'Modern fade down to skin or a complete style overhaul.'
         },
         {
           title: "Under 12's",
-          price: '£19.00',
           duration: '30 mins',
           description: 'Expert grooming for the younger gentlemen.'
         }
@@ -133,19 +126,16 @@ const Services: React.FC = () => {
       items: [
         {
           title: 'Back & Sides Only',
-          price: '£15.50',
           duration: '15 mins',
           description: 'Tidy up around the ears and neck.'
         },
         {
           title: 'Buzz Cut',
-          price: '£19.00',
           duration: '15 mins',
           description: 'One grade all over.'
         },
         {
           title: 'Beard Trim + 1 Guard',
-          price: '£18.00',
           duration: '15 mins',
           description: 'Quick beard maintenance.'
         }
@@ -156,13 +146,11 @@ const Services: React.FC = () => {
       items: [
         {
           title: 'Hot Towel Line Up',
-          price: '£17.00',
           duration: '15 mins',
           description: 'Sharp edges with hot towel treatment.'
         },
         {
           title: 'Luxury Hot Towel Shave',
-          price: '£24.50',
           duration: '45 mins',
           description: 'Traditional straight razor shave with premium products.'
         }
@@ -173,8 +161,8 @@ const Services: React.FC = () => {
   return (
     <>
       <SEO
-        title="Services & Pricing | Haircuts from £15.50 | All Ages Welcome"
-        description="Complete price list for men, women, and children. Professional barbering services for all ages in Newcastle. Haircuts from £15.50, packages from £28. Book online today."
+        title="Services | Professional Barbering | All Ages Welcome"
+        description="Professional barbering services for all ages in Newcastle. Expert haircuts, fades, beard trims, and hot towel shaves. Book online today."
         canonicalPath="/services"
         schema={serviceSchema}
       />
@@ -197,33 +185,33 @@ const Services: React.FC = () => {
                 </h2>
                 <div className="grid gap-6">
                   {category.items.map((service, index) => (
-                    <div 
-                      key={`${category.name}-${index}`} 
-                      className="group flex flex-col md:flex-row md:items-center justify-between p-6 rounded-sm bg-brand-charcoal border border-neutral-800 hover:border-brand-gold/30 transition-all duration-300"
+                    <a 
+                      key={`${category.name}-${index}`}
+                      href="https://belliata.com/online-booking?vi=67638#/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group flex flex-col md:flex-row md:items-center justify-between p-6 rounded-sm bg-brand-charcoal border border-neutral-800 hover:border-brand-gold/30 transition-all duration-300 cursor-pointer"
                     >
                       <div className="flex-1 pr-8">
                         <div className="flex items-baseline justify-between mb-2">
                           <h3 className="text-xl font-bold text-white group-hover:text-brand-gold transition-colors font-serif">
                             {service.title}
                           </h3>
-                          <span className="md:hidden text-brand-gold font-bold text-lg">{service.price}</span>
                         </div>
                         <p className="text-neutral-400 text-sm mb-2 md:mb-0">{service.description}</p>
                       </div>
                       
                       <div className="hidden md:flex flex-col items-end pl-8 border-l border-neutral-800 min-w-[120px]">
-                        <span className="text-2xl font-bold text-brand-gold mb-1">{service.price}</span>
+                        <span className="text-brand-gold text-sm font-medium mb-1">Book Now &rarr;</span>
                         <span className="text-xs text-neutral-500 uppercase tracking-wide">{service.duration}</span>
                       </div>
                       
                       {/* Mobile Duration */}
                       <div className="md:hidden mt-3 pt-3 border-t border-neutral-700 flex justify-between items-center">
                         <span className="text-xs text-neutral-500 uppercase tracking-wide">{service.duration}</span>
-                        <a href="https://belliata.com/online-booking?vi=67638#/" target="_blank" rel="noopener noreferrer">
-                          <span className="text-brand-gold text-sm font-medium">Book Now &rarr;</span>
-                        </a>
+                        <span className="text-brand-gold text-sm font-medium">Book Now &rarr;</span>
                       </div>
-                    </div>
+                    </a>
                   ))}
                 </div>
               </div>
