@@ -149,6 +149,16 @@ const Home: React.FC = () => {
   // Reviews data
   const reviews = [
     {
+      text: "Travelled 40 minutes after seeing multiple recommendations for Perry on Reddit. Will be making the trip again, Perry seems a great man and a fantastic barber. First time I've had my hair styled differently or my beard professionally trimmed and he did a brilliant job at both while holding good conversation. I simply felt looked after. A lovely experience and well worth the journey.",
+      author: "Tom T.",
+      date: "19 hours ago"
+    },
+    {
+      text: "Brilliant barbers. I've been coming here for years and I'm always pleased with both the cut and the service. There's always a good laugh and great chat while you're in the chair too. Highly recommended!",
+      author: "Kirk T.",
+      date: "1 month ago"
+    },
+    {
       text: "Been coming to Perry ever since I moved up to Newcastle and never been disappointed. Good craic and always welcoming with a good atmosphere in the shop!",
       author: "Liam I.",
       date: "2 weeks ago"
