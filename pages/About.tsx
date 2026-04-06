@@ -7,7 +7,7 @@ const About: React.FC = () => {
     <>
       <SEO
         title="Our Story | Family Barbershop Serving All Ages Since 2013"
-        description="Meet the team at Wilson Barber Co. Family-friendly barbers serving all ages in South Gosforth, Newcastle since 2013. Expert cuts in a welcoming environment."
+        description="Meet the team at Wilson Barbershop Co. Family-friendly barbers serving all ages in South Gosforth, Newcastle since 2013. Expert cuts in a welcoming environment."
         canonicalPath="/about"
       />
       
@@ -30,7 +30,7 @@ const About: React.FC = () => {
         <div className="container mx-auto px-4 py-20">
           <div className="max-w-3xl mx-auto text-neutral-300 space-y-6 leading-relaxed text-lg">
             <p>
-              <span className="text-brand-gold font-bold text-xl">Wilson Barber Co.</span> was founded on a simple principle: to bring back the community aspect of the barbershop while delivering the highest quality haircuts in Newcastle.
+              <span className="text-brand-gold font-bold text-xl">Wilson Barbershop Co.</span> was founded on a simple principle: to bring back the community aspect of the barbershop while delivering the highest quality haircuts in Newcastle.
             </p>
             <p>
               We opened our doors in 2013, frustrated by the lack of middle ground between the "in-and-out" budget chops and the overpriced, sterile salons. We wanted to create a space that felt like a club – a place where you're known by name, where the coffee is hot (and the beer is cold), and where the service is unhurried.

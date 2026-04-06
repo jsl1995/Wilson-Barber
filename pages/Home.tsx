@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Star, Clock, MapPin, CheckCircle2, ExternalLink, Instagram } from 'lucide-react';
+import { ArrowRight, Star, Clock, MapPin, CheckCircle2, ExternalLink, Instagram, ChevronDown } from 'lucide-react';
 import SEO from '../components/SEO';
 import Button from '../components/Button';
 import Mustache from '../components/Mustache';
@@ -146,6 +146,34 @@ const Home: React.FC = () => {
     }
   };
 
+  // FAQ data
+  const faqs = [
+    {
+      question: "How do I book an appointment?",
+      answer: "You can book online through our Belliata booking system — just click the 'Book Appointment' button on our website. You can also call us on 0191 284 8786 to book over the phone."
+    },
+    {
+      question: "Do you accept walk-ins?",
+      answer: "Walk-ins are welcome when we have availability, but we recommend booking in advance as appointments fill up quickly, especially on Saturdays."
+    },
+    {
+      question: "What are your opening hours?",
+      answer: "We're open Tuesday to Friday 10am–7pm and Saturday 8am–4pm. We're closed on Sundays and Mondays."
+    },
+    {
+      question: "Is there parking available?",
+      answer: "Yes! We offer free parking — just register your car registration in-store when you arrive."
+    },
+    {
+      question: "Do you cater for children?",
+      answer: "Absolutely. We're a family-friendly barbershop and welcome all ages, including under 12s who have their own dedicated service."
+    },
+    {
+      question: "What's your cancellation policy?",
+      answer: "We ask for at least 24 hours' notice if you need to cancel or reschedule. You can manage your booking through the Belliata app or give us a call."
+    }
+  ];
+
   // Reviews data
   const reviews = [
     {
@@ -189,6 +217,9 @@ const Home: React.FC = () => {
       date: "2 years ago"
     }
   ];
+
+  // FAQ accordion state
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   // Carousel state for mobile
   const [currentReviewIndex, setCurrentReviewIndex] = useState(0);
@@ -348,13 +379,13 @@ const Home: React.FC = () => {
                   {/* Grid of "posts" */}
                   <div className="grid grid-cols-2 gap-3 mb-6">
                     {[
-                      { src: "/images/insta1.jpg", alt: "Kids haircut at Wilson Barbershop South Gosforth" },
-                      { src: "/images/insta2.jpg", alt: "Happy customer at Wilson Barber Co Newcastle" },
-                      { src: "/images/insta3.jpg", alt: "Textured mullet haircut by Wilson Barber Co" },
-                      { src: "/images/insta4.jpg", alt: "Skin fade haircut at Wilson Barbershop Newcastle" }
+                      { src: "/images/insta1.webp", alt: "Kids haircut at Wilson Barbershop Co. South Gosforth" },
+                      { src: "/images/insta2.webp", alt: "Happy customer at Wilson Barbershop Co. Newcastle" },
+                      { src: "/images/insta3.webp", alt: "Textured mullet haircut by Wilson Barbershop Co." },
+                      { src: "/images/insta4.webp", alt: "Skin fade haircut at Wilson Barbershop Co. Newcastle" }
                     ].map((img, idx) => (
                         <a key={idx} href="https://www.instagram.com/wilsonbarberco/" target="_blank" rel="noopener noreferrer" className="block relative aspect-square overflow-hidden group">
-                           <img src={img.src} alt={img.alt} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                           <img src={img.src} alt={img.alt} loading="lazy" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
                            <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                               <Instagram className="h-6 w-6 text-white" />
                            </div>
@@ -487,6 +518,51 @@ const Home: React.FC = () => {
             </a>
           </div>
         </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-24 bg-brand-dark">
+        <div className="container mx-auto px-4 max-w-3xl">
+          <div className="text-center mb-16">
+            <h2 className="font-serif text-4xl text-white font-bold mb-4">Frequently Asked Questions</h2>
+            <Mustache className="w-24 h-8 text-white/50 mx-auto" />
+          </div>
+
+          <div className="space-y-4">
+            {faqs.map((faq, index) => (
+              <div key={index} className="border border-neutral-800 bg-brand-charcoal">
+                <button
+                  onClick={() => setOpenFaq(openFaq === index ? null : index)}
+                  className="w-full flex items-center justify-between p-6 text-left"
+                  aria-expanded={openFaq === index}
+                >
+                  <span className="text-white font-medium text-lg pr-4">{faq.question}</span>
+                  <ChevronDown className={`h-5 w-5 text-neutral-400 shrink-0 transition-transform duration-300 ${openFaq === index ? 'rotate-180' : ''}`} />
+                </button>
+                <div className={`overflow-hidden transition-all duration-300 ${openFaq === index ? 'max-h-40 pb-6' : 'max-h-0'}`}>
+                  <p className="px-6 text-neutral-400 leading-relaxed">{faq.answer}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* FAQ Schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": faqs.map(faq => ({
+              "@type": "Question",
+              "name": faq.question,
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": faq.answer
+              }
+            }))
+          })}}
+        />
       </section>
     </>
   );

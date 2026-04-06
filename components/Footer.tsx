@@ -16,7 +16,7 @@ const Footer: React.FC = () => {
                <span className="text-xs text-neutral-500 tracking-[0.2em] font-bold">EST. 2013</span>
             </div>
             <h3 className="font-serif text-2xl font-bold text-white leading-none">
-              Wilson <span className="text-brand-gold">Barber Co.</span>
+              Wilson <span className="text-brand-gold">Barbershop Co.</span>
             </h3>
             <p className="text-neutral-400 text-sm leading-relaxed">
               Traditional barbering for the modern gentleman. Experience precision cuts and luxury shaves in a relaxed atmosphere.
@@ -85,7 +85,7 @@ const Footer: React.FC = () => {
         </div>
 
         <div className="border-t border-neutral-900 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-neutral-600">
-          <p>&copy; {new Date().getFullYear()} Wilson Barber Co. All rights reserved. Developed by <a href="https://www.linkedin.com/in/joel-lockey/" target="_blank" rel="noopener noreferrer" className="hover:text-neutral-400 transition-colors">Joel</a></p>
+          <p>&copy; {new Date().getFullYear()} Wilson Barbershop Co. All rights reserved. Developed by <a href="https://www.linkedin.com/in/joel-lockey/" target="_blank" rel="noopener noreferrer" className="hover:text-neutral-400 transition-colors">Joel</a></p>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <a href="#" className="hover:text-neutral-400">Privacy Policy</a>
             <a href="#" className="hover:text-neutral-400">Terms of Service</a>

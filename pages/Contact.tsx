@@ -6,8 +6,8 @@ const Contact: React.FC = () => {
   return (
     <>
       <SEO
-        title="Contact Us | South Gosforth, Newcastle | Wilson Barber Co."
-        description="Visit Wilson Barber Co. in South Gosforth, Newcastle. Family-friendly barbershop serving all ages. Opening hours, location map, and contact details. Book your appointment today."
+        title="Contact Us | South Gosforth, Newcastle | Wilson Barbershop Co."
+        description="Visit Wilson Barbershop Co. in South Gosforth, Newcastle. Family-friendly barbershop serving all ages. Opening hours, location map, and contact details. Book your appointment today."
         canonicalPath="/contact"
       />
 
