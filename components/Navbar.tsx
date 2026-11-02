@@ -3,6 +3,7 @@ import { NavLink, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import Button from './Button';
 import Mustache from './Mustache';
+import { BOOKING_URL } from '../seo/pages';
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -70,16 +71,17 @@ const Navbar: React.FC = () => {
                 )}
               </NavLink>
             ))}
-            <a href="https://belliata.com/online-booking?vi=67638#/" target="_blank" rel="noopener noreferrer">
+            <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer">
               <Button variant="primary" size="sm">Book Now</Button>
             </a>
           </nav>
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden text-white p-2 focus:outline-none"
+            className="md:hidden text-white p-3 -m-1 focus:outline-none"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
+            aria-expanded={isOpen}
           >
             {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
@@ -105,7 +107,7 @@ const Navbar: React.FC = () => {
                 {link.name}
               </NavLink>
             ))}
-             <a href="https://belliata.com/online-booking?vi=67638#/" target="_blank" rel="noopener noreferrer" className="w-full mt-4 block">
+             <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="w-full mt-4 block">
               <Button variant="primary" className="w-full">Book Appointment</Button>
             </a>
           </div>

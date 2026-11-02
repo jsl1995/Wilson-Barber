@@ -1,5 +1,6 @@
 import React from 'react';
 import SEO from '../components/SEO';
+import { PAGES, BOOKING_URL } from '../seo/pages';
 import Button from '../components/Button';
 import Mustache from '../components/Mustache';
 
@@ -15,71 +16,6 @@ interface ServiceCategory {
 }
 
 const Services: React.FC = () => {
-  const serviceSchema = {
-    type: "Service",
-    data: {
-      "name": "Wilson Barbershop Co. Services",
-      "serviceType": "Barber Services",
-      "provider": {
-        "@type": "HairSalon",
-        "name": "Wilson Barbershop Co.",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "Tenerife Buildings, 6 Station Rd",
-          "addressLocality": "South Gosforth",
-          "addressRegion": "Newcastle upon Tyne",
-          "postalCode": "NE3 1QD",
-          "addressCountry": "GB"
-        }
-      },
-      "areaServed": {
-        "@type": "City",
-        "name": "Newcastle upon Tyne"
-      },
-      "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "Barbering Services",
-        "itemListElement": [
-          {
-            "@type": "OfferCatalog",
-            "name": "Barber Packages",
-            "itemListElement": [
-              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Haircut & Beard Trim" } },
-              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Haircut & Beard Razor" } },
-              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Haircut & Hot Towel Line Up" } },
-              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Buzz Cut & Beard Trim" } }
-            ]
-          },
-          {
-            "@type": "OfferCatalog",
-            "name": "Haircutting",
-            "itemListElement": [
-              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Skin Fades & Restyles" } },
-              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Under 12's Haircut" } }
-            ]
-          },
-          {
-            "@type": "OfferCatalog",
-            "name": "Clipper Cut",
-            "itemListElement": [
-              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Back & Sides Only" } },
-              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Buzz Cut" } },
-              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Beard Trim + 1 Guard" } }
-            ]
-          },
-          {
-            "@type": "OfferCatalog",
-            "name": "Shaving",
-            "itemListElement": [
-              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Hot Towel Line Up" } },
-              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Luxury Hot Towel Shave" } }
-            ]
-          }
-        ]
-      }
-    }
-  };
-
   const serviceCategories: ServiceCategory[] = [
     {
       name: "Barber Packages",
@@ -160,20 +96,15 @@ const Services: React.FC = () => {
 
   return (
     <>
-      <SEO
-        title="Services | Professional Barbering | All Ages Welcome"
-        description="Professional barbering services for all ages in Newcastle. Expert haircuts, fades, beard trims, and hot towel shaves. Book online today."
-        canonicalPath="/services"
-        schema={serviceSchema}
-      />
+      <SEO page={PAGES.services} />
 
       <div className="pt-24 min-h-screen bg-brand-dark">
         <div className="container mx-auto px-4 py-16">
           <div className="text-center max-w-2xl mx-auto mb-16">
-            <h1 className="font-serif text-4xl md:text-5xl font-bold text-white mb-6">What We Do</h1>
+            <h1 className="font-serif text-4xl md:text-5xl font-bold text-white mb-6">Barber Services in South Gosforth</h1>
             <Mustache className="w-12 h-4 text-brand-gold mx-auto mb-6 opacity-80" />
             <p className="text-neutral-400 leading-relaxed">
-              We take pride in our craft. Every service includes a consultation to ensure we deliver exactly what you're looking for, tailored to your style and hair type.
+              From skin fades and restyles to kids' cuts, beard trims and hot towel shaves, we look after customers of all ages at our barbershop on Station Road, South Gosforth, Newcastle. Every service includes a consultation to make sure you get exactly what you're looking for, tailored to your style and hair type.
             </p>
           </div>
 
@@ -187,7 +118,7 @@ const Services: React.FC = () => {
                   {category.items.map((service, index) => (
                     <a 
                       key={`${category.name}-${index}`}
-                      href="https://belliata.com/online-booking?vi=67638#/"
+                      href={BOOKING_URL}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="group flex flex-col md:flex-row md:items-center justify-between p-6 rounded-sm bg-brand-charcoal border border-neutral-800 hover:border-brand-gold/30 transition-all duration-300 cursor-pointer"
@@ -221,7 +152,7 @@ const Services: React.FC = () => {
           <div className="mt-16 text-center bg-neutral-900 p-8 rounded-sm max-w-4xl mx-auto">
              <h3 className="text-white font-serif text-2xl mb-4">Ready to look your best?</h3>
              <p className="text-neutral-400 mb-8">Appointments fill up fast. We recommend booking 2-3 days in advance.</p>
-             <a href="https://belliata.com/online-booking?vi=67638#/" target="_blank" rel="noopener noreferrer">
+             <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer">
                <Button size="lg">Book Appointment Now</Button>
              </a>
           </div>

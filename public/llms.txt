@@ -1,0 +1,22 @@
+# Wilson Barbershop Co.
+
+> Family-friendly barbershop in South Gosforth, Newcastle upon Tyne, established 2013. Haircuts, skin fades, kids' cuts, beard trims and traditional hot towel shaves. Online booking available.
+
+- Address: Tenerife Buildings, 6 Station Rd, South Gosforth, Newcastle upon Tyne NE3 1QD, UK (5 minute walk from South Gosforth Metro Station)
+- Phone: 0191 284 8786
+- Email: information@wilsonbarber.co.uk
+- Opening hours: Tuesday-Friday 10:00-19:00; Saturday 08:00-16:00; Sunday and Monday closed
+- Booking: https://belliata.com/online-booking?vi=67638
+- Walk-ins welcome; appointments recommended
+- Free parking when your car registration is registered in-store
+
+## Pages
+
+- [Home](https://wilsonbarber.co.uk/): About the shop, reviews and booking
+- [Services](https://wilsonbarber.co.uk/services): Full service list with durations
+- [Contact](https://wilsonbarber.co.uk/contact): Location, map, opening hours and contact details
+
+## Elsewhere
+
+- [Instagram](https://www.instagram.com/wilsonbarberco/)
+- [Google Maps](https://maps.app.goo.gl/YpmqUWwnJYiXfU6u5)

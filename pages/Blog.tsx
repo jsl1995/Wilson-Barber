@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, Calendar, Clock } from 'lucide-react';
 import SEO from '../components/SEO';
+import { PAGES } from '../seo/pages';
 import Button from '../components/Button';
 import Mustache from '../components/Mustache';
 
@@ -36,11 +37,7 @@ const blogPosts = [
 const Blog: React.FC = () => {
   return (
     <>
-      <SEO
-        title="Blog | Barbering Tips & News"
-        description="Stay updated with the latest news, grooming tips, and barbering insights from Wilson Barbershop Co. in Newcastle."
-        canonicalPath="/blog"
-      />
+      <SEO page={PAGES.blog} />
 
       <div className="pt-24 min-h-screen bg-brand-dark">
         <div className="container mx-auto px-4 py-16">
@@ -71,6 +68,7 @@ const Blog: React.FC = () => {
                   <img
                     src={post.image}
                     alt={post.title}
+                    loading="lazy"
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                 </div>

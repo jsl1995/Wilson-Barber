@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Star, Clock, MapPin, CheckCircle2, ExternalLink, Instagram } from 'lucide-react';
 import SEO from '../components/SEO';
+import { PAGES, BOOKING_URL, MAPS_URL, INSTAGRAM_URL } from '../seo/pages';
 import Button from '../components/Button';
 import Mustache from '../components/Mustache';
 
@@ -52,15 +53,22 @@ const getOpenStatus = () => {
 };
 
 const OpenStatus: React.FC = () => {
-  const [status, setStatus] = useState(getOpenStatus());
+  // Computed only in the browser: the page is prerendered at build time, so
+  // server output must not depend on the current time (avoids hydration mismatch).
+  const [status, setStatus] = useState<ReturnType<typeof getOpenStatus> | null>(null);
 
   useEffect(() => {
+    setStatus(getOpenStatus());
     // Update every minute
     const interval = setInterval(() => {
       setStatus(getOpenStatus());
     }, 60000);
     return () => clearInterval(interval);
   }, []);
+
+  if (!status) {
+    return <div className="h-5 mb-6" aria-hidden="true" />;
+  }
 
   return (
     <div className="flex items-center justify-center gap-2 mb-6">
@@ -73,120 +81,39 @@ const OpenStatus: React.FC = () => {
 };
 
 const Home: React.FC = () => {
-  const structuredData = {
-    type: "HairSalon",
-    data: {
-      "name": "Wilson Barbershop Co.",
-      "image": "https://wilsonbarber.co.uk/og-image.png",
-      "url": "https://wilsonbarber.co.uk",
-      "@id": "https://wilsonbarber.co.uk",
-      "description": "Family-friendly barbershop serving all ages in South Gosforth, Newcastle since 2013. Expert haircuts, beard trims, and traditional hot towel shaves.",
-      "telephone": "0191 284 8786",
-      "sameAs": [
-        "https://www.instagram.com/wilsonbarberco/"
-      ],
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Tenerife Buildings, 6 Station Rd",
-        "addressLocality": "South Gosforth",
-        "addressRegion": "Newcastle upon Tyne",
-        "postalCode": "NE3 1QD",
-        "addressCountry": "GB"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": "54.9896",
-        "longitude": "-1.6065"
-      },
-      "priceRange": "££",
-      "currenciesAccepted": "GBP",
-      "paymentAccepted": "Cash, Credit Card",
-      "foundingDate": "2013",
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.6",
-        "reviewCount": "162",
-        "bestRating": "5",
-        "worstRating": "1"
-      },
-      "review": [
-        {
-          "@type": "Review",
-          "reviewRating": { "@type": "Rating", "ratingValue": "5" },
-          "author": { "@type": "Person", "name": "Liam I." },
-          "reviewBody": "Been coming to Perry ever since I moved up to Newcastle and never been disappointed. Good craic and always welcoming with a good atmosphere in the shop!"
-        },
-        {
-          "@type": "Review",
-          "reviewRating": { "@type": "Rating", "ratingValue": "5" },
-          "author": { "@type": "Person", "name": "Richard P." },
-          "reviewBody": "Have been coming here for years now. Never a bad hair cut. Have gone elsewhere on one or two occasions but have always regretted it."
-        },
-        {
-          "@type": "Review",
-          "reviewRating": { "@type": "Rating", "ratingValue": "5" },
-          "author": { "@type": "Person", "name": "R. Black" },
-          "reviewBody": "Great service from Perry! Very professional, good craic, friendly and really knows his stuff. Can't recommend more!"
-        }
-      ],
-      "openingHoursSpecification": [
-        {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": ["Tuesday", "Wednesday", "Thursday", "Friday"],
-          "opens": "10:00",
-          "closes": "19:00"
-        },
-        {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": "Saturday",
-          "opens": "08:00",
-          "closes": "16:00"
-        }
-      ]
-    }
-  };
-
   // Reviews data
   const reviews = [
     {
       text: "Travelled 40 minutes after seeing multiple recommendations for Perry on Reddit. Will be making the trip again, Perry seems a great man and a fantastic barber. First time I've had my hair styled differently or my beard professionally trimmed and he did a brilliant job at both while holding good conversation. I simply felt looked after. A lovely experience and well worth the journey.",
-      author: "Tom T.",
-      date: "19 hours ago"
+      author: "Tom T."
     },
     {
       text: "Brilliant barbers. I've been coming here for years and I'm always pleased with both the cut and the service. There's always a good laugh and great chat while you're in the chair too. Highly recommended!",
-      author: "Kirk T.",
-      date: "1 month ago"
+      author: "Kirk T."
     },
     {
       text: "Been coming to Perry ever since I moved up to Newcastle and never been disappointed. Good craic and always welcoming with a good atmosphere in the shop!",
-      author: "Liam I.",
-      date: "2 weeks ago"
+      author: "Liam I."
     },
     {
       text: "Have been coming here for years now. Never a bad hair cut. Have gone elsewhere on one or two occasions but have always regretted it.",
-      author: "Richard P.",
-      date: "1 month ago"
+      author: "Richard P."
     },
     {
       text: "Great service from Perry! Very professional, good craic, friendly and really knows his stuff. Can't recommend more!",
-      author: "R. Black",
-      date: "1 month ago"
+      author: "R. Black"
     },
     {
       text: "Managed to get a same day booking due to being let down by my regular barber. glad i was let down now as this will be my new go to. Thanks Perry, love the cut!",
-      author: "Neil P.",
-      date: "5 months ago"
+      author: "Neil P."
     },
     {
       text: "Perry s salon has been my go to A1 since Day 1. I have tried several salons in this part of the city but, none of them could match this salons vibe and hair cuts. Definitely recommended to try it at least once. Cheers!",
-      author: "Akshit P.",
-      date: "1 year ago"
+      author: "Akshit P."
     },
     {
       text: "Searched years for a barber I liked and was happy coming back too! Perry is an absolute godsend, always comfortable, class appointment system and a man who genuinely cares about the service he gives you. Always great personalised recommendations and advice. Can't recommend highly enough!",
-      author: "Craig M.",
-      date: "2 years ago"
+      author: "Craig M."
     }
   ];
 
@@ -241,12 +168,7 @@ const Home: React.FC = () => {
 
   return (
     <>
-      <SEO
-        title="Barber Newcastle | Family Barbershop South Gosforth Since 2013"
-        description="Wilson Barbershop Co. offers premium haircuts, beard trims, and hot towel shaves for all ages in Newcastle. Family-friendly barbers serving South Gosforth since 2013. Book online today."
-        canonicalPath="/"
-        schema={structuredData}
-      />
+      <SEO page={PAGES.home} />
       
       {/* Hero Section */}
       <section className="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden bg-brand-dark">
@@ -255,6 +177,9 @@ const Home: React.FC = () => {
           <img
             src="/images/hero.webp"
             alt="Barber working on client at Wilson Barbershop Co"
+            width={2500}
+            height={1666}
+            fetchPriority="high"
             className="w-full h-full object-cover grayscale opacity-40"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/80 to-black/30" />
@@ -266,27 +191,29 @@ const Home: React.FC = () => {
             <div className="text-white mb-6 transform -rotate-2 hover:rotate-0 transition-transform duration-500">
                <Mustache className="w-40 h-auto drop-shadow-2xl" />
             </div>
-            <h1 className="font-serif text-5xl md:text-7xl font-black tracking-widest text-white leading-none uppercase drop-shadow-lg text-center">
-              Wilson
-            </h1>
-              <div className="flex items-center gap-4 mt-4">
-                <span className="h-[1px] w-12 bg-white/50"></span>
+            <h1 className="flex flex-col items-center">
+              <span className="font-serif text-5xl md:text-7xl font-black tracking-widest text-white leading-none uppercase drop-shadow-lg text-center">
+                Wilson
+              </span>
+              <span className="flex items-center gap-4 mt-4">
+                <span className="h-[1px] w-12 bg-white/50" aria-hidden="true"></span>
                 <span className="montserrat-extralight text-sm md:text-lg tracking-[0.4em] text-white/90 uppercase text-shadow-sm">
                   Barbershop Co.
                 </span>
-                <span className="h-[1px] w-12 bg-white/50"></span>
-              </div>
+                <span className="h-[1px] w-12 bg-white/50" aria-hidden="true"></span>
+              </span>
+            </h1>
             <span className="text-[0.6rem] md:text-xs font-medium tracking-[0.2em] text-white/60 uppercase mt-4">
               Est. 2013
             </span>
           </div>
 
           <p className="text-lg md:text-xl text-neutral-300 mb-6 max-w-xl mx-auto leading-relaxed font-light">
-            South Gosforth based, our story goes back to 2013. Book now for a trim in a relaxed setting with Perry.
+            Family-friendly barbers in South Gosforth, Newcastle, since 2013. Book now for a trim in a relaxed setting with Perry.
           </p>
           <OpenStatus />
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-            <a href="https://belliata.com/online-booking?vi=67638#/" target="_blank" rel="noopener noreferrer">
+            <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer">
               <Button size="lg" className="w-full sm:w-auto min-w-[200px]">
                 Book Appointment
               </Button>
@@ -312,7 +239,7 @@ const Home: React.FC = () => {
               <div key={idx} className="flex items-center space-x-4 justify-center md:justify-start">
                 <feature.icon className="h-8 w-8 text-black" />
                 <div>
-                  <h3 className="font-bold text-lg uppercase tracking-wide">{feature.title}</h3>
+                  <p className="font-bold text-lg uppercase tracking-wide">{feature.title}</p>
                   <p className="text-neutral-600 text-sm">{feature.desc}</p>
                 </div>
               </div>
@@ -340,7 +267,7 @@ const Home: React.FC = () => {
                            <p className="text-white font-serif italic">@wilsonbarberco</p>
                         </div>
                      </div>
-                     <a href="https://www.instagram.com/wilsonbarberco/" target="_blank" rel="noopener noreferrer">
+                     <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer">
                         <Button variant="outline" size="sm" className="text-xs px-3 py-1 h-8">View Profile</Button>
                      </a>
                   </div>
@@ -348,13 +275,13 @@ const Home: React.FC = () => {
                   {/* Grid of "posts" */}
                   <div className="grid grid-cols-2 gap-3 mb-6">
                     {[
-                      { src: "/images/insta1.jpg", alt: "Kids haircut at Wilson Barbershop South Gosforth" },
-                      { src: "/images/insta2.jpg", alt: "Happy customer at Wilson Barber Co Newcastle" },
-                      { src: "/images/insta3.jpg", alt: "Textured mullet haircut by Wilson Barber Co" },
-                      { src: "/images/insta4.jpg", alt: "Skin fade haircut at Wilson Barbershop Newcastle" }
+                      { src: "/images/insta1.jpg", w: 640, h: 640, alt: "Kids haircut at Wilson Barbershop South Gosforth" },
+                      { src: "/images/insta2.jpg", w: 640, h: 853, alt: "Happy customer at Wilson Barbershop Co. Newcastle" },
+                      { src: "/images/insta3.jpg", w: 640, h: 640, alt: "Textured mullet haircut by Wilson Barbershop Co." },
+                      { src: "/images/insta4.jpg", w: 640, h: 800, alt: "Skin fade haircut at Wilson Barbershop Newcastle" }
                     ].map((img, idx) => (
-                        <a key={idx} href="https://www.instagram.com/wilsonbarberco/" target="_blank" rel="noopener noreferrer" className="block relative aspect-square overflow-hidden group">
-                           <img src={img.src} alt={img.alt} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                        <a key={idx} href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="block relative aspect-square overflow-hidden group">
+                           <img src={img.src} alt={img.alt} width={img.w} height={img.h} loading="lazy" decoding="async" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
                            <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                               <Instagram className="h-6 w-6 text-white" />
                            </div>
@@ -408,7 +335,7 @@ const Home: React.FC = () => {
                </div>
                <span className="text-neutral-500 text-xs">162 reviews on Google</span>
             </div>
-            <h2 className="font-serif text-4xl text-white font-bold mb-4">See what Customer's say about us</h2>
+            <h2 className="font-serif text-4xl text-white font-bold mb-4">What Our Customers Say</h2>
             <Mustache className="w-24 h-8 text-white/50 mx-auto" />
           </div>
           
@@ -422,7 +349,7 @@ const Home: React.FC = () => {
                 <p className="text-neutral-300 mb-8 leading-relaxed font-light">"{review.text}"</p>
                 <div className="flex items-center justify-between mt-auto border-t border-neutral-900 pt-6">
                   <span className="text-white font-bold uppercase tracking-wide text-sm">{review.author}</span>
-                  <span className="text-neutral-600 text-xs">{review.date}</span>
+                  <span className="text-neutral-600 text-xs">Google review</span>
                 </div>
               </div>
             ))}
@@ -447,7 +374,7 @@ const Home: React.FC = () => {
                       <p className="text-neutral-300 mb-8 leading-relaxed font-light">"{review.text}"</p>
                       <div className="flex items-center justify-between mt-auto border-t border-neutral-900 pt-6">
                         <span className="text-white font-bold uppercase tracking-wide text-sm">{review.author}</span>
-                        <span className="text-neutral-600 text-xs">{review.date}</span>
+                        <span className="text-neutral-600 text-xs">Google review</span>
                       </div>
                     </div>
                   </div>
@@ -478,7 +405,7 @@ const Home: React.FC = () => {
 
           <div className="text-center">
             <a
-              href="https://maps.app.goo.gl/YpmqUWwnJYiXfU6u5"
+              href={MAPS_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block px-8 py-4 border border-white text-white hover:bg-white hover:text-black transition-all duration-300 uppercase tracking-widest text-sm font-medium"
