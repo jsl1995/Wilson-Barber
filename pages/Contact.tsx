@@ -1,15 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { MapPin, Phone, Clock } from 'lucide-react';
 import SEO from '../components/SEO';
+import Button from '../components/Button';
+import { PAGES, BOOKING_URL, MAPS_URL } from '../seo/pages';
 
 const Contact: React.FC = () => {
+  // The Google Maps embed is ~3 MB / 55 requests, so only load it on request.
+  const [showMap, setShowMap] = useState(false);
+
   return (
     <>
-      <SEO
-        title="Contact Us | South Gosforth, Newcastle | Wilson Barber Co."
-        description="Visit Wilson Barber Co. in South Gosforth, Newcastle. Family-friendly barbershop serving all ages. Opening hours, location map, and contact details. Book your appointment today."
-        canonicalPath="/contact"
-      />
+      <SEO page={PAGES.contact} />
 
       <div className="pt-24 min-h-screen bg-brand-dark">
         <div className="container mx-auto px-4 py-16">
@@ -22,10 +23,13 @@ const Contact: React.FC = () => {
                 <p className="text-neutral-400">
                   Have a question about a service or need to reschedule? Give us a call or drop by the shop. Walk-ins are welcome, but appointments are recommended.
                 </p>
+                <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="inline-block mt-6">
+                  <Button size="lg">Book Appointment</Button>
+                </a>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <a href="https://www.google.com/maps/search/?api=1&query=Wilson+Barbershop+Co.+Newcastle" target="_blank" rel="noopener noreferrer" className="bg-brand-charcoal p-6 rounded-sm border border-neutral-800 hover:border-white transition-colors cursor-pointer block">
+                <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className="bg-brand-charcoal p-6 rounded-sm border border-neutral-800 hover:border-white transition-colors cursor-pointer block">
                   <MapPin className="h-8 w-8 text-brand-gold mb-4" />
                   <h3 className="text-white font-bold mb-2">Location</h3>
                   <p className="text-neutral-400 text-sm">
@@ -37,9 +41,9 @@ const Contact: React.FC = () => {
 
                 <div className="bg-brand-charcoal p-6 rounded-sm border border-neutral-800">
                   <Phone className="h-8 w-8 text-brand-gold mb-4" />
-                  <h3 className="text-white font-bold mb-2">Get in Touch</h3>
-                  <p className="text-neutral-400 text-sm mb-1">T: <a href="tel:01912848786" className="hover:text-white transition-colors">0191 284 8786</a></p>
-                  <p className="text-neutral-400 text-sm">E: <a href="mailto:information@wilsonbarber.co.uk" className="hover:text-white transition-colors">information@wilsonbarber.co.uk</a></p>
+                  <h3 className="text-white font-bold mb-2">Phone &amp; Email</h3>
+                  <p className="text-neutral-400 text-sm mb-1">T: <a href="tel:+441912848786" className="inline-block py-2 hover:text-white transition-colors">0191 284 8786</a></p>
+                  <p className="text-neutral-400 text-sm">E: <a href="mailto:information@wilsonbarber.co.uk" className="inline-block py-2 break-all hover:text-white transition-colors">information@wilsonbarber.co.uk</a></p>
                 </div>
               </div>
 
@@ -82,16 +86,32 @@ const Contact: React.FC = () => {
 
             {/* Map Column */}
             <div className="h-full min-h-[400px] bg-neutral-800 rounded-sm overflow-hidden relative border border-neutral-700">
-              <iframe
-                src="https://www.google.com/maps?q=Wilson+Barbershop+Co.,+6+Station+Rd,+South+Gosforth,+Newcastle+upon+Tyne+NE3+1QD&output=embed"
-                width="100%"
-                height="100%"
-                style={{ border: 0, position: 'absolute', top: 0, left: 0 }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title="Wilson Barbershop Co. location map"
-              />
+              {showMap ? (
+                <iframe
+                  src="https://www.google.com/maps?q=Wilson+Barbershop+Co.,+6+Station+Rd,+South+Gosforth,+Newcastle+upon+Tyne+NE3+1QD&output=embed"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0, position: 'absolute', top: 0, left: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Wilson Barbershop Co. location map"
+                />
+              ) : (
+                <div className="absolute inset-0 flex flex-col items-center justify-center gap-6 p-8 text-center bg-brand-charcoal">
+                  <MapPin className="h-10 w-10 text-brand-gold" />
+                  <p className="text-neutral-300">
+                    6 Station Rd, South Gosforth<br />Newcastle upon Tyne NE3 1QD<br />
+                    <span className="text-neutral-500 text-sm">5 minute walk from South Gosforth Metro Station</span>
+                  </p>
+                  <div className="flex flex-col sm:flex-row gap-4">
+                    <Button variant="outline" onClick={() => setShowMap(true)}>Show Map</Button>
+                    <a href={MAPS_URL} target="_blank" rel="noopener noreferrer">
+                      <Button variant="outline" className="w-full">Open in Google Maps</Button>
+                    </a>
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         </div>
