@@ -3,6 +3,8 @@
   "compatibility_date": "2026-01-27",
   "assets": {
     "directory": "./dist",
-    "not_found_handling": "single-page-application"
+    // Every route is prerendered to its own HTML file, so unknown paths get a real
+    // 404 status (dist/404.html) instead of the homepage shell (a soft 404).
+    "not_found_handling": "404-page"
   }
 }

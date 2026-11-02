@@ -5,10 +5,16 @@ import Mustache from '../components/Mustache';
 const About: React.FC = () => {
   return (
     <>
+      {/* TODO before routing this page: replace the template placeholder team, images and copy
+          with real content, then add an "about" entry to seo/pages.ts, App.tsx and PRERENDER_ROUTES. */}
       <SEO
-        title="Our Story | Family Barbershop Serving All Ages Since 2013"
-        description="Meet the team at Wilson Barber Co. Family-friendly barbers serving all ages in South Gosforth, Newcastle since 2013. Expert cuts in a welcoming environment."
-        canonicalPath="/about"
+        page={{
+          path: '/about',
+          title: 'Our Story | Wilson Barbershop Co.',
+          description: 'The story of Wilson Barbershop Co., a family-friendly barbershop in South Gosforth, Newcastle since 2013.',
+          breadcrumb: 'Our Story',
+          noindex: true,
+        }}
       />
       
       <div className="pt-24 min-h-screen bg-brand-dark">

@@ -1,55 +1,29 @@
 import React, { useEffect } from 'react';
-import { JsonLdProps } from '../types';
+import { PageMeta, headTagsFor } from '../seo/pages';
 
 interface SEOProps {
-  title: string;
-  description: string;
-  canonicalPath?: string;
-  schema?: JsonLdProps;
+  page: PageMeta;
 }
 
-const SEO: React.FC<SEOProps> = ({ title, description, canonicalPath, schema }) => {
+/**
+ * Keeps <head> in sync during client-side navigation. The same tags are written
+ * into the static HTML at build time (scripts/prerender.mjs), so crawlers that
+ * don't run JavaScript still see per-page metadata.
+ */
+const SEO: React.FC<SEOProps> = ({ page }) => {
   useEffect(() => {
-    // Update Title
-    document.title = title ? `${title} | Wilson Barbershop Co` : 'Wilson Barbershop Co Newcastle - South Gosforth';
+    document.title = page.title;
 
-    // Update Meta Description
-    let metaDescription = document.querySelector('meta[name="description"]');
-    if (!metaDescription) {
-      metaDescription = document.createElement('meta');
-      metaDescription.setAttribute('name', 'description');
-      document.head.appendChild(metaDescription);
+    // Replace every SEO-managed tag so nothing from the previous route lingers.
+    document.head.querySelectorAll('[data-seo]').forEach((el) => el.remove());
+    for (const t of headTagsFor(page)) {
+      const el = document.createElement(t.tag);
+      for (const [k, v] of Object.entries(t.attrs)) el.setAttribute(k, v);
+      el.setAttribute('data-seo', '');
+      if (t.content) el.textContent = t.content;
+      document.head.appendChild(el);
     }
-    metaDescription.setAttribute('content', description);
-
-    // Update Canonical URL
-    let linkCanonical = document.querySelector('link[rel="canonical"]');
-    if (!linkCanonical) {
-      linkCanonical = document.createElement('link');
-      linkCanonical.setAttribute('rel', 'canonical');
-      document.head.appendChild(linkCanonical);
-    }
-    if (canonicalPath) {
-      linkCanonical.setAttribute('href', `https://wilsonbarber.co.uk${canonicalPath}`);
-    }
-
-    // Inject JSON-LD Schema
-    if (schema) {
-      let scriptSchema = document.querySelector('script[type="application/ld+json"]');
-      if (!scriptSchema) {
-        scriptSchema = document.createElement('script');
-        scriptSchema.setAttribute('type', 'application/ld+json');
-        document.head.appendChild(scriptSchema);
-      }
-      const schemaData = {
-        "@context": "https://schema.org",
-        "@type": schema.type,
-        ...schema.data
-      };
-      scriptSchema.textContent = JSON.stringify(schemaData);
-    }
-
-  }, [title, description, canonicalPath, schema]);
+  }, [page]);
 
   return null;
 };
